@@ -13,6 +13,7 @@ import PayrollsIndex from "../components/Payrolls/PayrollsIndex.vue"
 import PayrollsCreate from "../components/Payrolls/PayrollsCreate.vue"
 import PayrollsEdit from "../components/Payrolls/PayrollsEdit.vue"
 import PayrollsShow from "../components/Payrolls/PayrollsShow.vue"
+import PageNotFound from "../404.vue"
 
 const routes = [
     {
@@ -86,6 +87,11 @@ const routes = [
         component: PayrollsShow,
         props: true
     },
+    {
+        path: '/:catchAll(.*)',
+        name: '404',
+        component: PageNotFound
+    }
 ]
 
 export default createRouter({
