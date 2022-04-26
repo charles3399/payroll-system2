@@ -16,6 +16,7 @@
         <!-- css -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        @stack('scripts')
     </head>
     <body class="bg-blue-500 box-border m-0 p-0">
         <div id="app">
@@ -23,6 +24,5 @@
             @yield('content')
             @include('layouts.footer')
         </div>
-        @yield('javascript')
     </body>
 </html>

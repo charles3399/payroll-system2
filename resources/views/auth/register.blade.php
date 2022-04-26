@@ -47,3 +47,27 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        function togglePassword() {
+            const toggle = document.getElementById('password')
+            const show = document.querySelector('.eye-show')
+            const hidden = document.querySelector('.eye-hide')
+            if(toggle.type === 'password') {
+                toggle.type = 'text'
+                show.classList.add('hidden')
+                show.classList.remove('block')
+                hidden.classList.remove('hidden')
+                hidden.classList.add('block')
+            }
+            else {
+                toggle.type = 'password'
+                show.classList.add('block')
+                show.classList.remove('hidden')
+                hidden.classList.remove('block')
+                hidden.classList.add('hidden')
+            }
+        }
+    </script>
+@endpush
