@@ -26,6 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     Route::apiResource('positions', PositionController::class);
 //     Route::apiResource('payrolls', PayrollController::class);
 // });
-Route::apiResource('employees', EmployeeController::class);
-Route::apiResource('positions', PositionController::class);
-Route::apiResource('payrolls', PayrollController::class);
+Route::group(['middleware' => 'auth'], function() {
+    Route::apiResource('employees', EmployeeController::class);
+    Route::apiResource('positions', PositionController::class);
+    Route::apiResource('payrolls', PayrollController::class);
+});

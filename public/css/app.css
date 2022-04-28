@@ -757,40 +757,12 @@ select {
 .relative {
   position: relative;
 }
-.inset-y-3 {
-  top: 0.75rem;
-  bottom: 0.75rem;
-}
-.inset-y-8 {
-  top: 2rem;
-  bottom: 2rem;
-}
-.inset-y-10 {
-  top: 2.5rem;
-  bottom: 2.5rem;
-}
-.inset-y-6 {
-  top: 1.5rem;
-  bottom: 1.5rem;
-}
 .inset-y-0 {
   top: 0px;
   bottom: 0px;
 }
-.top-0 {
-  top: 0px;
-}
 .right-0 {
   right: 0px;
-}
-.right-7 {
-  right: 1.75rem;
-}
-.right-24 {
-  right: 6rem;
-}
-.left-10 {
-  left: 2.5rem;
 }
 .m-5 {
   margin: 1.25rem;
@@ -873,11 +845,11 @@ select {
 .hidden {
   display: none;
 }
-.h-5 {
-  height: 1.25rem;
-}
 .h-6 {
   height: 1.5rem;
+}
+.h-5 {
+  height: 1.25rem;
 }
 .w-11\/12 {
   width: 91.666667%;
