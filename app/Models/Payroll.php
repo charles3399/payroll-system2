@@ -20,6 +20,6 @@ class Payroll extends Model
     ];
 
     public function employee() {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(Employee::class)->withTimestamps();
     }
 }

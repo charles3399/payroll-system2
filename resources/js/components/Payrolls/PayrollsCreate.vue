@@ -1,6 +1,6 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Create Payroll</h1>
-    <div class="p-2 mx-5">
+    <div class="p-2 mx-4 2xl:mx-64 xl:mx-64 lg:mx-64">
         <router-link :to="{ name: 'payrolls.index' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">All Payrolls</router-link>
         <div class="my-2 px-5 py-3 bg-gray-700 rounded-lg">
             <div v-if="errors" class="p-3 my-2">
