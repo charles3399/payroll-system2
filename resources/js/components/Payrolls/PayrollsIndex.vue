@@ -18,7 +18,7 @@
                     <th class="px-4 py-3">Actions</th>
                 </tr>
             </thead>
-            <transition-group appear="fade" name="fade" tag="tbody">
+            <transition-group appear name="fade" tag="tbody">
                 <tr v-for="payroll in payrolls" :key="payroll.id" class="bg-slate-700">
                     <td class="px-4 py-3">{{ payroll.id }}</td>
                     <td class="px-4 py-3">

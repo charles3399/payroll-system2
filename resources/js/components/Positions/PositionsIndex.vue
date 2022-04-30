@@ -12,7 +12,7 @@
                     <th class="px-6 py-3">Actions</th>
                 </tr>
             </thead>
-            <transition-group appear="fade" name="fade" tag="tbody">
+            <transition-group appear name="fade" tag="tbody">
                 <tr v-for="position in positions" :key="position.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ position.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'positions.show', params: { id: position.id } }" class="hover:underline">{{ position.position_name }}</router-link></td>

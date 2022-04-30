@@ -15,7 +15,7 @@
                     <th class="px-6 py-3">Actions</th>
                 </tr>
             </thead>
-            <transition-group appear="fade" tag="tbody" name="fade">
+            <transition-group appear tag="tbody" name="fade">
                 <tr v-for="employee in employees" :key="employee.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ employee.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'employees.show', params: { id: employee.id } }" class="hover:underline">{{ employee.full_name }}</router-link></td>
