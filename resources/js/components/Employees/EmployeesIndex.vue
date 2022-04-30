@@ -2,7 +2,8 @@
     <h1 class="text-2xl tracking-wide text-center">Employees</h1>
     <div class="p-2 mx-4">
         <router-link :to="{ name: 'employees.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Employee</router-link>
-        <table class="table-auto my-2 text-center">
+        <p class="text-center text-xl" v-if="employees.length === 0">No record yet...</p>
+        <table v-else class="table-auto my-2 text-center">
             <thead>
                 <tr class="bg-gray-600">
                     <th class="px-6 py-3">ID</th>
@@ -14,7 +15,7 @@
                     <th class="px-6 py-3">Actions</th>
                 </tr>
             </thead>
-            <transition-group tag="tbody" name="fade">
+            <transition-group appear="fade" tag="tbody" name="fade">
                 <tr v-for="employee in employees" :key="employee.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ employee.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'employees.show', params: { id: employee.id } }" class="hover:underline">{{ employee.full_name }}</router-link></td>

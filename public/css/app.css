@@ -802,25 +802,13 @@ select {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-}
-.mx-64 {
-  margin-left: 16rem;
-  margin-right: 16rem;
-}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.mx-80 {
-  margin-left: 20rem;
-  margin-right: 20rem;
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .mx-24 {
   margin-left: 6rem;
@@ -883,32 +871,8 @@ select {
 .w-4 {
   width: 1rem;
 }
-.w-5\/6 {
-  width: 83.333333%;
-}
-.w-1\/2 {
-  width: 50%;
-}
-.w-96 {
-  width: 24rem;
-}
-.w-3\/6 {
-  width: 50%;
-}
-.w-3\/5 {
-  width: 60%;
-}
-.w-auto {
-  width: auto;
-}
-.w-1\/4 {
-  width: 25%;
-}
 .table-auto {
   table-layout: auto;
-}
-.table-fixed {
-  table-layout: fixed;
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -961,10 +925,6 @@ select {
 .rounded {
   border-radius: 0.25rem;
 }
-.rounded-t-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
 .border-2 {
   border-width: 2px;
 }
@@ -1013,13 +973,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
-.bg-slate-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
-}
 .bg-gray-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 .bg-green-600 {
   --tw-bg-opacity: 1;
@@ -1304,16 +1264,6 @@ select {
     margin-right: 16rem;
   }
 
-  .lg\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-
-  .lg\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .lg\:w-5\/6 {
     width: 83.333333%;
   }
@@ -1348,16 +1298,6 @@ select {
     margin-right: 16rem;
   }
 
-  .xl\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-
-  .xl\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .xl\:w-1\/2 {
     width: 50%;
   }
@@ -1386,16 +1326,6 @@ select {
   .\32xl\:mx-64 {
     margin-left: 16rem;
     margin-right: 16rem;
-  }
-
-  .\32xl\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-
-  .\32xl\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .\32xl\:w-1\/2 {

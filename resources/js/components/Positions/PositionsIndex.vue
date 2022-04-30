@@ -2,7 +2,8 @@
     <h1 class="text-2xl tracking-wide text-center">Positions</h1>
     <div class="p-2 mx-4 2xl:mx-64 xl:mx-64 lg:mx-64">
         <router-link :to="{ name: 'positions.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Position</router-link>
-        <table class="table-auto my-2 text-center w-full">
+        <p class="text-center text-xl" v-if="positions.length === 0">No record yet...</p>
+        <table v-else class="table-auto my-2 text-center w-full">
             <thead>
                 <tr class="bg-gray-600">
                     <th class="px-6 py-3">ID</th>
@@ -11,8 +12,7 @@
                     <th class="px-6 py-3">Actions</th>
                 </tr>
             </thead>
-            <tbody>
-            <transition-group name="fade">
+            <transition-group appear="fade" name="fade" tag="tbody">
                 <tr v-for="position in positions" :key="position.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ position.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'positions.show', params: { id: position.id } }" class="hover:underline">{{ position.position_name }}</router-link></td>
@@ -23,7 +23,6 @@
                     </td>
                 </tr>
             </transition-group>
-            </tbody>
         </table>
     </div>
 </template>
