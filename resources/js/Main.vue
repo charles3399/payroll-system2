@@ -1,14 +1,14 @@
 <template>
-    <div class="p-5 m-5">
-        <router-link v-if="positions.length > 0" to="/employees" class="mx-5 p-5 font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Employees&nbsp;{{ employees.length }}</router-link>
+    <div class="p-5 flex justify-center items-center">
+        <router-link v-if="positions.length > 0" to="/employees" class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Employees<br />{{ employees.length }}</router-link>
 
-        <button @click="verify('employees')" v-else class="mx-5 p-5 font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Employees&nbsp;{{ employees.length }}</button>
+        <button @click="verify('employees')" v-else class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Employees<br />{{ employees.length }}</button>
 
-        <router-link v-if="employees.length > 0" to="/payrolls" class="mx-5 p-5 font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Payrolls&nbsp;{{ payrolls.length }}</router-link>
+        <router-link v-if="employees.length > 0" to="/payrolls" class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Payrolls<br />{{ payrolls.length }}</router-link>
 
-        <button @click="verify('payrolls')" v-else class="mx-5 p-5 font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Payrolls&nbsp;{{ payrolls.length }}</button>
+        <button @click="verify('payrolls')" v-else class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Payrolls<br />{{ payrolls.length }}</button>
 
-        <router-link to="/positions" class="mx-5 p-5 font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Positions&nbsp;{{ positions.length }}</router-link>
+        <router-link to="/positions" class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Positions<br />{{ positions.length }}</router-link>
     </div>
 </template>
 

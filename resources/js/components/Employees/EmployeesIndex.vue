@@ -5,7 +5,7 @@
         <div class="bg-slate-700 rounded-lg">
             <table class="table-auto my-2 text-center">
                 <thead>
-                    <tr>
+                    <tr class="bg-gray-600">
                         <th class="px-6 py-3">ID</th>
                         <th class="px-6 py-3">Full Name</th>
                         <th class="px-6 py-3">Email</th>

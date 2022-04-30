@@ -21,13 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::middleware(['auth'])->group(function() {
-//     Route::apiResource('employees', EmployeeController::class);
-//     Route::apiResource('positions', PositionController::class);
-//     Route::apiResource('payrolls', PayrollController::class);
-// });
-Route::group(['middleware' => 'auth'], function() {
-    Route::apiResource('employees', EmployeeController::class);
-    Route::apiResource('positions', PositionController::class);
-    Route::apiResource('payrolls', PayrollController::class);
+Route::middleware(['auth:sanctum'])->group(function() {
+    Route::apiResources([
+        'employees' => EmployeeController::class,
+        'positions' => PositionController::class,
+        'payrolls' => PayrollController::class,
+    ]);
 });

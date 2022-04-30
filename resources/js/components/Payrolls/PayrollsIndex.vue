@@ -1,12 +1,12 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Payrolls</h1>
-    <div class="p-2 mx-5 my-2">
+    <div class="p-2 w-5/6 mx-auto">
         <router-link v-if="employees.length > 0" :to="{ name: 'payrolls.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Payroll</router-link>
         <div v-else></div>
         <div class="bg-slate-700 rounded-lg">
             <table class="table-auto my-2 text-center">
                 <thead>
-                    <tr>
+                    <tr class="bg-gray-600">
                         <th class="px-4 py-3">ID</th>
                         <th class="px-4 py-3">Employee</th>
                         <th class="px-4 py-3">Days Worked</th>
