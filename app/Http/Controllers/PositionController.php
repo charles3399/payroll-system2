@@ -16,7 +16,14 @@ class PositionController extends Controller
      */
     public function index()
     {
-        return PositionResource::collection(Position::all());
+        if(count(Position::all()) >= 10) {
+            $positions = Position::paginate(10);
+        }
+        else {
+            $positions = Position::all();
+        }
+
+        return PositionResource::collection($positions);
     }
 
     /**

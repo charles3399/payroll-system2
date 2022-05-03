@@ -8,9 +8,9 @@ export default function usePosition() {
     const errors = ref('')
     const router = useRouter()
 
-    const allPositions = async () => {
-        let response = await axios.get('/api/positions')
-        positions.value = response.data.data
+    const allPositions = async (page = 1) => {
+        let response = await axios.get('/api/positions?page=' + page)
+        positions.value = response.data
     }
 
     const getPosition = async (id) => {

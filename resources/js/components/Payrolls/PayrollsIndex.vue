@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <transition-group appear name="fade" tag="tbody">
-                <tr v-for="payroll in payrolls" :key="payroll.id" class="bg-slate-700">
+                <tr v-for="payroll in payrolls.data" :key="payroll.id" class="bg-slate-700">
                     <td class="px-4 py-3">{{ payroll.id }}</td>
                     <td class="px-4 py-3">
                         <router-link :to="{ name: 'payrolls.show', params: { id: payroll.id } }" class="hover:underline">
@@ -39,6 +39,14 @@
                 </tr>
             </transition-group>
         </table>
+        <Pagination :data="payrolls" @pagination-change-page="allPayrolls" :limit="2">
+            <template #prev-nav>
+                <span>&lt;</span>
+            </template>
+            <template #next-nav>
+                <span>&gt;</span>
+            </template>
+        </Pagination>
     </div>
 </template>
 
@@ -46,8 +54,12 @@
     import usePayroll from '../../composables/usePayroll'
     import useEmployee from "../../composables/useEmployee"
     import { onMounted } from 'vue';
+    import LaravelVuePagination from 'laravel-vue-pagination'
 
     export default {
+        components: {
+            'Pagination': LaravelVuePagination
+        },
         setup() {
             const { payrolls, allPayrolls, deletePayroll } = usePayroll()
             const { employees, allEmployees } = useEmployee()
@@ -63,7 +75,7 @@
                 await allPayrolls()
             }
 
-            return { payrolls, destroyPayroll, employees }
+            return { payrolls, destroyPayroll, employees, allPayrolls }
         }
     }
 </script>

@@ -17,7 +17,7 @@ class PayrollController extends Controller
      */
     public function index()
     {
-        $payrolls = Payroll::with('employee')->get();
+        $payrolls = Payroll::with('employee')->paginate(10);
 
         return PayrollResource::collection($payrolls);
     }

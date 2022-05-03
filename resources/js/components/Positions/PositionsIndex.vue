@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <transition-group appear name="fade" tag="tbody">
-                <tr v-for="position in positions" :key="position.id" class="bg-slate-700">
+                <tr v-for="position in positions.data" :key="position.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ position.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'positions.show', params: { id: position.id } }" class="hover:underline">{{ position.position_name }}</router-link></td>
                     <td class="px-6 py-3">{{ position.basic_pay }}</td>
@@ -24,14 +24,26 @@
                 </tr>
             </transition-group>
         </table>
+        <Pagination :data="positions" @pagination-change-page="allPositions" :limit="2">
+            <template #prev-nav>
+                <span>&lt;</span>
+            </template>
+            <template #next-nav>
+                <span>&gt;</span>
+            </template>
+        </Pagination>
     </div>
 </template>
 
 <script>
     import usePosition from '../../composables/usePosition'
     import { onMounted } from 'vue';
+    import LaravelVuePagination from 'laravel-vue-pagination'
 
     export default {
+        components: {
+            'Pagination': LaravelVuePagination
+        },
         setup() {
             const { positions, allPositions, deletePosition } = usePosition()
 
@@ -45,7 +57,7 @@
                 await allPositions()
             }
 
-            return { positions, destroyPosition }
+            return { positions, destroyPosition, allPositions }
         }
     }
 </script>
