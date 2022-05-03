@@ -51,7 +51,7 @@
                 await allEmployees()
             }
 
-            return { employees, destroyEmployee, allEmployees }
+            return { employees, destroyEmployee }
         }
     }
 </script>

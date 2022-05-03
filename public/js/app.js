@@ -19913,8 +19913,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     return {
       employees: employees,
-      destroyEmployee: destroyEmployee,
-      allEmployees: allEmployees
+      destroyEmployee: destroyEmployee
     };
   }
 });
