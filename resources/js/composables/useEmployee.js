@@ -8,9 +8,9 @@ export default function useEmployee() {
     const errors = ref('')
     const router = useRouter()
 
-    const allEmployees = async () => {
-        let response = await axios.get('/api/employees')
-        employees.value = response.data.data
+    const allEmployees = async (page = 1) => {
+        let response = await axios.get('/api/employees?page=' + page)
+        employees.value = response.data
     }
 
     const getEmployee = async (id) => {

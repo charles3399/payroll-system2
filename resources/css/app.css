@@ -11,3 +11,40 @@
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+.pagination {
+    @apply flex flex-row text-sm
+}
+
+.pagination .page-item {
+    @apply text-white hover:bg-white hover:text-blue-600
+}
+
+.pagination .page-item.pagination-page-nav {
+    @apply border-t border-b border-r
+}
+
+.pagination .page-item:first-child {
+    @apply rounded-l border-l
+}
+
+.pagination .pagination-prev-nav,
+.pagination .pagination-next-nav {
+    @apply border-t border-b border-r
+}
+
+.pagination .page-item:last-child {
+    @apply rounded-r
+}
+
+.pagination .page-item .page-link {
+    @apply inline-block px-3 py-2
+}
+
+.pagination .page-item.active {
+    @apply text-blue-500 bg-white
+}
+
+.pagination .page-item.active .sr-only {
+    @apply hidden
+}

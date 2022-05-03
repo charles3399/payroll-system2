@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "acorn": "^8.7.0",
+        "laravel-vue-pagination": "^3.0.0",
         "mix": "0.0.1",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",
