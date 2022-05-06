@@ -2,7 +2,7 @@
     <h1 class="text-2xl tracking-wide text-center">Employees</h1>
     <div class="p-2 mx-4">
         <router-link :to="{ name: 'employees.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Employee</router-link>
-        <p class="text-center text-xl" v-if="employees.length === 0">No record yet...</p>
+        <p class="text-center text-xl" v-if="paginateEmployees.length === 0">No record yet...</p>
         <table v-else class="table-auto my-2 text-center">
             <thead>
                 <tr class="bg-gray-600">
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <transition-group appear tag="tbody" name="fade">
-                <tr v-for="employee in employees.data" :key="employee.id" class="bg-slate-700">
+                <tr v-for="employee in paginateEmployees.data" :key="employee.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ employee.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'employees.show', params: { id: employee.id } }" class="hover:underline">{{ employee.full_name }}</router-link></td>
                     <td class="px-6 py-3">{{ employee.email }}</td>
@@ -30,7 +30,7 @@
                 </tr>
             </transition-group>
         </table>
-        <Pagination :data="employees" @pagination-change-page="allEmployees" :limit="2">
+        <Pagination :data="paginateEmployees" @pagination-change-page="paginateData" :limit="2">
             <template #prev-nav>
                 <span>&lt;</span>
             </template>
@@ -43,27 +43,34 @@
 
 <script>
     import useEmployee from '../../composables/useEmployee'
-    import { onMounted } from 'vue'
+    import { ref, onMounted } from 'vue'
     import LaravelVuePagination from 'laravel-vue-pagination'
+    import axios from 'axios'
 
     export default {
         components: {
             'Pagination': LaravelVuePagination
         },
         setup() {
-            const { employees, allEmployees, deleteEmployee } = useEmployee()
+            const { deleteEmployee } = useEmployee()
+            const paginateEmployees = ref([])
 
-            onMounted(allEmployees)
+            const paginateData = async (page = 1) => {
+                let response = await axios.get('/api/employees?page=' + page)
+                paginateEmployees.value = response.data
+            }
+
+            onMounted(paginateData)
 
             const destroyEmployee = async (id, name) => {
                 if(!window.confirm(`Do you want to delete employee: ${name}?`)) {
                     return
                 }
                 await deleteEmployee(id)
-                await allEmployees()
+                await paginateData()
             }
 
-            return { employees, destroyEmployee, allEmployees }
+            return { destroyEmployee, paginateData, paginateEmployees }
         }
     }
 </script>

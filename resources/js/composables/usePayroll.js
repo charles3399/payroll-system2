@@ -8,9 +8,9 @@ export default function usePayroll() {
     const errors = ref('')
     const router = useRouter()
 
-    const allPayrolls = async (page = 1) => {
-        let response = await axios.get('/api/payrolls?page' + page)
-        payrolls.value = response.data
+    const allPayrolls = async () => {
+        let response = await axios.get('/api/payrolls')
+        payrolls.value = response.data.data
     }
 
     const getPayroll = async (id) => {

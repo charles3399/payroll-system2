@@ -2,7 +2,7 @@
     <h1 class="text-2xl tracking-wide text-center">Positions</h1>
     <div class="p-2 mx-4 2xl:mx-64 xl:mx-64 lg:mx-64">
         <router-link :to="{ name: 'positions.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Position</router-link>
-        <p class="text-center text-xl" v-if="positions.length === 0">No record yet...</p>
+        <p class="text-center text-xl" v-if="paginatePositions.length === 0">No record yet...</p>
         <table v-else class="table-auto my-2 text-center w-full">
             <thead>
                 <tr class="bg-gray-600">
@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <transition-group appear name="fade" tag="tbody">
-                <tr v-for="position in positions.data" :key="position.id" class="bg-slate-700">
+                <tr v-for="position in paginatePositions.data" :key="position.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ position.id }}</td>
                     <td class="px-6 py-3"><router-link :to="{ name: 'positions.show', params: { id: position.id } }" class="hover:underline">{{ position.position_name }}</router-link></td>
                     <td class="px-6 py-3">{{ position.basic_pay }}</td>
@@ -24,7 +24,7 @@
                 </tr>
             </transition-group>
         </table>
-        <Pagination :data="positions" @pagination-change-page="allPositions" :limit="2">
+        <Pagination :data="paginatePositions" @pagination-change-page="paginateData" :limit="2">
             <template #prev-nav>
                 <span>&lt;</span>
             </template>
@@ -37,27 +37,34 @@
 
 <script>
     import usePosition from '../../composables/usePosition'
-    import { onMounted } from 'vue';
+    import { ref, onMounted } from 'vue';
     import LaravelVuePagination from 'laravel-vue-pagination'
+    import axios from 'axios'
 
     export default {
         components: {
             'Pagination': LaravelVuePagination
         },
         setup() {
-            const { positions, allPositions, deletePosition } = usePosition()
+            const { deletePosition } = usePosition()
+            const paginatePositions = ref([])
 
-            onMounted(allPositions)
+            const paginateData = async (page = 1) => {
+                let response = await axios.get('/api/positions?page=' + page)
+                paginatePositions.value = response.data
+            }
+
+            onMounted(paginateData)
 
             const destroyPosition = async (id, name) => {
                 if(!window.confirm(`Do you want to delete the position: ${name}?`)) {
                     return
                 }
                 await deletePosition(id)
-                await allPositions()
+                await paginateData()
             }
 
-            return { positions, destroyPosition, allPositions }
+            return { destroyPosition, paginatePositions, paginateData }
         }
     }
 </script>

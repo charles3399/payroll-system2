@@ -3,7 +3,7 @@
     <div class="mx-24">
         <router-link v-if="employees.length > 0" :to="{ name: 'payrolls.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Payroll</router-link>
         <div v-else></div>
-        <p class="text-center text-xl" v-if="payrolls.length === 0">No record yet...</p>
+        <p class="text-center text-xl" v-if="paginatePayrolls.length === 0">No record yet...</p>
         <table v-else class="table-auto my-2 text-center w-full">
             <thead>
                 <tr class="bg-gray-600">
@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <transition-group appear name="fade" tag="tbody">
-                <tr v-for="payroll in payrolls.data" :key="payroll.id" class="bg-slate-700">
+                <tr v-for="payroll in paginatePayrolls.data" :key="payroll.id" class="bg-slate-700">
                     <td class="px-4 py-3">{{ payroll.id }}</td>
                     <td class="px-4 py-3">
                         <router-link :to="{ name: 'payrolls.show', params: { id: payroll.id } }" class="hover:underline">
@@ -39,7 +39,7 @@
                 </tr>
             </transition-group>
         </table>
-        <Pagination :data="payrolls" @pagination-change-page="allPayrolls" :limit="2">
+        <Pagination :data="paginatePayrolls" @pagination-change-page="paginateData" :limit="2">
             <template #prev-nav>
                 <span>&lt;</span>
             </template>
@@ -53,18 +53,25 @@
 <script>
     import usePayroll from '../../composables/usePayroll'
     import useEmployee from "../../composables/useEmployee"
-    import { onMounted } from 'vue';
+    import { ref, onMounted } from 'vue';
     import LaravelVuePagination from 'laravel-vue-pagination'
+    import axios from 'axios';
 
     export default {
         components: {
             'Pagination': LaravelVuePagination
         },
         setup() {
-            const { payrolls, allPayrolls, deletePayroll } = usePayroll()
+            const { deletePayroll } = usePayroll()
             const { employees, allEmployees } = useEmployee()
+            const paginatePayrolls = ref([])
 
-            onMounted(allPayrolls)
+            const paginateData = async (page = 1) => {
+                let response = await axios.get('/api/payrolls?page=' + page)
+                paginatePayrolls.value = response.data
+            }
+
+            onMounted(paginateData)
             onMounted(allEmployees)
 
             const destroyPayroll = async (id, name) => {
@@ -72,10 +79,10 @@
                     return
                 }
                 await deletePayroll(id)
-                await allPayrolls()
+                await paginateData()
             }
 
-            return { payrolls, destroyPayroll, employees, allPayrolls }
+            return { destroyPayroll, employees, paginatePayrolls, paginateData }
         }
     }
 </script>
