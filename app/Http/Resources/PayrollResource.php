@@ -2,6 +2,10 @@
 
 namespace App\Http\Resources;
 
+use DB;
+use App\Models\Employee;
+use App\Models\Position;
+use App\Models\Payroll;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PayrollResource extends JsonResource
@@ -18,7 +22,7 @@ class PayrollResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')),
+            'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')->load('position')),
             'days_worked' => $this->days_worked,
             'overtime' => $this->overtime,
             'late' => $this->late,

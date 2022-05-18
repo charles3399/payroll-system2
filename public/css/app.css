@@ -829,6 +829,9 @@ select {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .mt-4 {
   margin-top: 1rem;
 }
@@ -870,6 +873,9 @@ select {
 }
 .w-4 {
   width: 1rem;
+}
+.w-1\/2 {
+  width: 50%;
 }
 .table-auto {
   table-layout: auto;
@@ -989,6 +995,14 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
+.bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
 .bg-green-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
@@ -1090,6 +1104,10 @@ select {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .font-extrabold {
   font-weight: 800;

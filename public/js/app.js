@@ -20306,11 +20306,18 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(props) {
     var _usePayroll = (0,_composables_usePayroll__WEBPACK_IMPORTED_MODULE_0__["default"])(),
         payroll = _usePayroll.payroll,
-        getPayroll = _usePayroll.getPayroll;
+        getPayroll = _usePayroll.getPayroll,
+        payrollCompute = _usePayroll.payrollCompute;
+
+    var numberWithCommas = function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
 
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getPayroll(props.id));
     return {
-      payroll: payroll
+      payroll: payroll,
+      payrollCompute: payrollCompute,
+      numberWithCommas: numberWithCommas
     };
   }
 });
@@ -22216,8 +22223,120 @@ var _hoisted_10 = {
 var _hoisted_11 = {
   "class": "my-2 text-xl tracking-wider"
 };
+var _hoisted_12 = {
+  "class": "my-2 text-xl tracking-wider"
+};
+var _hoisted_13 = {
+  "class": "my-2 text-xl tracking-wider"
+};
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
+
+var _hoisted_15 = {
+  "class": "my-2 px-5 py-3 bg-gray-700 rounded-lg"
+};
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "mb-1 text-xl"
+}, "Payroll breakdown", -1
+/* HOISTED */
+);
+
+var _hoisted_17 = {
+  "class": "table-auto text-center mb-3 bg-slate-500 rounded-lg"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  "class": "bg-slate-400"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Monthly Pay"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Overtime Pay"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Bonus"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Gross Income")])], -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "p-2"
+};
+var _hoisted_20 = {
+  "class": "p-2"
+};
+var _hoisted_21 = {
+  "class": "p-2"
+};
+var _hoisted_22 = {
+  "class": "p-2"
+};
+var _hoisted_23 = {
+  "class": "table-auto text-center mb-3 bg-slate-500 rounded-lg"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  "class": "bg-slate-400"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "SSS (Social Security System)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "HDMF (Home Development Mutual Fund)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "PhilHealth")])], -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "p-2"
+};
+var _hoisted_26 = {
+  "class": "p-2"
+};
+var _hoisted_27 = {
+  "class": "p-2"
+};
+var _hoisted_28 = {
+  "class": "table-auto text-center mb-3 bg-slate-500 rounded-lg"
+};
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  "class": "bg-slate-400"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Lates"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Absences"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "p-3"
+}, "Total deduction")])], -1
+/* HOISTED */
+);
+
+var _hoisted_30 = {
+  "class": "p-2"
+};
+var _hoisted_31 = {
+  "class": "p-2"
+};
+var _hoisted_32 = {
+  "class": "p-2"
+};
+var _hoisted_33 = {
+  "class": "bg-slate-700"
+};
+var _hoisted_34 = {
+  "class": "text-lg"
+};
+var _hoisted_35 = {
+  "class": "font-bold text-2xl"
+};
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", {
+  "class": "text-xs"
+}, "Total pay = gross income - total deduction", -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -22242,15 +22361,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_6, "Employee: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].full_name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, "Days Worked: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.days_worked), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, "Position: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].position.position_name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_8, "Overtime: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.overtime), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_8, "Basic pay: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].position.basic_pay), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, "Lates: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.late), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, "Days Worked: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.days_worked), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "Overtime: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.overtime), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, "Bonuses: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.bonuses), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, "Lates: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.late), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_13, "Bonuses: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.bonuses), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -22262,14 +22385,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "my-2 px-3 py-1 text-sm bg-green-500 hover:bg-green-700 transform duration-200 font-bold tracking-wider rounded-lg"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_12];
+      return [_hoisted_14];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["to"])])])], 64
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).monthly)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).overtime_final)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).gross_income)), 1
+  /* TEXT */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).sss)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).hdmf)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).philhealth)), 1
+  /* TEXT */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).late_overall)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).absent_overall)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).total_deductions)), 1
+  /* TEXT */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Total Pay for " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].full_name) + ": ", 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).net_pay)), 1
+  /* TEXT */
+  )]), _hoisted_36])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -23128,6 +23275,38 @@ function usePayroll() {
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
   var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
 
+  var payrollCompute = function payrollCompute(basic_pay, days_worked, overtime, bonuses, late, absences) {
+    //Earnings
+    var hourly = basic_pay;
+    var per_day = hourly * 8;
+    var monthly = per_day * days_worked;
+    var overtime_final = (hourly * 0.5 + hourly) * overtime;
+    var gross_income = monthly + overtime_final + bonuses; //Deductions
+
+    var late_per_pay = hourly / 60;
+    var late_overall = Math.round(late_per_pay * late);
+    var absent_overall = Math.round(hourly * 8 * absences);
+    var sss = Math.round(monthly * 0.0447);
+    var hdmf = Math.round(monthly * 0.02);
+    var philhealth = Math.round(monthly * 0.04); //Net Pay
+
+    var total_deductions = Math.round(sss + hdmf + philhealth + late_overall + absent_overall);
+    var net_pay = Math.round(gross_income - total_deductions);
+    return {
+      monthly: monthly,
+      overtime_final: overtime_final,
+      bonuses: bonuses,
+      gross_income: gross_income,
+      sss: sss,
+      hdmf: hdmf,
+      philhealth: philhealth,
+      late_overall: late_overall,
+      absent_overall: absent_overall,
+      total_deductions: total_deductions,
+      net_pay: net_pay
+    };
+  };
+
   var allPayrolls = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var response;
@@ -23297,7 +23476,8 @@ function usePayroll() {
     getPayroll: getPayroll,
     createPayroll: createPayroll,
     updatePayroll: updatePayroll,
-    deletePayroll: deletePayroll
+    deletePayroll: deletePayroll,
+    payrollCompute: payrollCompute
   };
 }
 

@@ -8,6 +8,29 @@ export default function usePayroll() {
     const errors = ref('')
     const router = useRouter()
 
+    const payrollCompute = (basic_pay, days_worked, overtime, bonuses, late, absences) => {
+        //Earnings
+        let hourly = basic_pay
+        let per_day = hourly * 8
+        let monthly = per_day * days_worked
+        let overtime_final = ((hourly * 0.5) + hourly) * overtime
+        let gross_income = monthly + overtime_final + bonuses
+
+        //Deductions
+        let late_per_pay = hourly / 60
+        let late_overall = Math.round(late_per_pay * late)
+        let absent_overall = Math.round(hourly * 8 * absences)
+        let sss = Math.round(monthly * 0.0447)
+        let hdmf = Math.round(monthly * 0.02)
+        let philhealth = Math.round(monthly * 0.04)
+
+        //Net Pay
+        let total_deductions = Math.round(sss + hdmf + philhealth + late_overall + absent_overall)
+        let net_pay = Math.round(gross_income - total_deductions)
+
+        return { monthly, overtime_final, bonuses, gross_income, sss, hdmf, philhealth, late_overall, absent_overall, total_deductions, net_pay }
+    }
+
     const allPayrolls = async () => {
         let response = await axios.get('/api/payrolls')
         payrolls.value = response.data.data
@@ -55,6 +78,7 @@ export default function usePayroll() {
         getPayroll,
         createPayroll,
         updatePayroll,
-        deletePayroll
+        deletePayroll,
+        payrollCompute,
     }
 }
