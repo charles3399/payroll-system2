@@ -14,7 +14,7 @@
                 <div class="p-5">
                     <label for="employee_id" class="font-bold tracking-wider block mb-2">Employee</label>
                     <select name="employee_id" id="employee_id" v-model="form.employee_id" class="form-select rounded-lg py-1 text-black font-bold tracking-wider">
-                        <option class="font-bold tracking-wider" v-for="employee in employees" :key="employee.id" :value="employee.id">{{ employee.full_name }}</option>
+                        <option class="font-bold tracking-wider" v-for="employee in employeeDropdown" :key="employee.id" :value="employee.id">{{ employee.full_name }}</option>
                     </select>
                 </div>
                 <div class="p-5">
@@ -63,9 +63,9 @@
             })
 
             const { errors, createPayroll } = usePayroll()
-            const { employees, allEmployees } = useEmployee()
+            const { employeeDropdown, dropdownEmployees } = useEmployee()
 
-            onMounted(allEmployees())
+            onMounted(dropdownEmployees())
 
             const savePayroll = async () => {
                 await createPayroll({...form})
@@ -74,7 +74,7 @@
             return {
                 form,
                 errors,
-                employees,
+                employeeDropdown,
                 savePayroll
             }
         }

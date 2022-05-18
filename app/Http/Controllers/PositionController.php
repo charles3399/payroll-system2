@@ -76,4 +76,11 @@ class PositionController extends Controller
 
         return response()->noContent();
     }
+
+    public function showPositions()
+    {
+        $positions = Position::all();
+
+        return PositionResource::collection($positions);
+    }
 }

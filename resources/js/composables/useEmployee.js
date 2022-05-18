@@ -5,12 +5,18 @@ import { useRouter } from 'vue-router'
 export default function useEmployee() {
     const employees = ref([])
     const employee = ref([])
+    const employeeDropdown = ref([])
     const errors = ref('')
     const router = useRouter()
 
     const allEmployees = async () => {
         let response = await axios.get('/api/employees')
         employees.value = response.data.data
+    }
+
+    const dropdownEmployees = async () => {
+        let response = await axios.get('/api/allEmployee')
+        employeeDropdown.value = response.data.data
     }
 
     const getEmployee = async (id) => {
@@ -52,6 +58,8 @@ export default function useEmployee() {
         errors,
         router,
         allEmployees,
+        employeeDropdown,
+        dropdownEmployees,
         getEmployee,
         createEmployee,
         updateEmployee,

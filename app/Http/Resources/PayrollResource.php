@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\EmployeeResource;
 
 class PayrollResource extends JsonResource
 {
@@ -18,7 +19,7 @@ class PayrollResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')->load('position')),
+            'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')),
             'days_worked' => $this->days_worked,
             'overtime' => $this->overtime,
             'late' => $this->late,

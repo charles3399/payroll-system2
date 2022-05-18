@@ -30,7 +30,7 @@
                 <div class="p-5">
                     <label for="position_id" class="font-bold tracking-wider block mb-2">Position</label>
                     <select name="position_id" id="position_id" v-model="form.position_id" class="form-select rounded-lg py-1 text-black font-bold tracking-wider">
-                        <option class="font-bold tracking-wider" v-for="position in positions" :key="position.id" :value="position.id">{{ position.position_name }}</option>
+                        <option class="font-bold tracking-wider" v-for="position in positionDropdown" :key="position.id" :value="position.id">{{ position.position_name }}</option>
                     </select>
                 </div>
                 <div class="p-5">
@@ -58,9 +58,9 @@
             })
 
             const { errors, createEmployee } = useEmployee()
-            const { positions, allPositions } = usePosition()
+            const { positionDropdown, dropdownPositions } = usePosition()
 
-            onMounted(allPositions())
+            onMounted(dropdownPositions())
 
             const saveEmployee = async () => {
                 await createEmployee({...form})
@@ -69,7 +69,7 @@
             return {
                 form,
                 errors,
-                positions,
+                positionDropdown,
                 saveEmployee
             }
         }

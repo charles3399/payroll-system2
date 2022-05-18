@@ -74,4 +74,11 @@ class EmployeeController extends Controller
 
         return response()->noContent();
     }
+
+    public function showEmployees()
+    {
+        $employees = Employee::all();
+
+        return EmployeeResource::collection($employees);
+    }
 }

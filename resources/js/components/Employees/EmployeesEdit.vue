@@ -30,7 +30,7 @@
                 <div class="p-5">
                     <label for="position_id" class="font-bold tracking-wider block mb-2">Position</label>
                     <select name="position_id" id="position_id" v-model="employee.position_id" class="form-select rounded-lg py-1 text-black font-bold tracking-wider">
-                        <option class="font-bold tracking-wider" v-for="position in positions" :key="position.id" :value="position.id">{{ position.position_name }}</option>
+                        <option class="font-bold tracking-wider" v-for="position in positionDropdown" :key="position.id" :value="position.id">{{ position.position_name }}</option>
                     </select>
                 </div>
                 <div class="p-5">
@@ -56,10 +56,10 @@
         },
         setup(props) {
             const { errors, employee, getEmployee, updateEmployee } = useEmployee()
-            const { positions, allPositions } = usePosition()
+            const { positionDropdown, dropdownPositions } = usePosition()
 
             onMounted(getEmployee(props.id))
-            onMounted(allPositions())
+            onMounted(dropdownPositions())
 
             const saveEmployee = async () => {
                 await updateEmployee(props.id)
@@ -68,7 +68,7 @@
             return {
                 errors,
                 employee,
-                positions,
+                positionDropdown,
                 saveEmployee
             }
         }

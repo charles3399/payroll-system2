@@ -17,7 +17,7 @@ class PayrollController extends Controller
      */
     public function index()
     {
-        $payrolls = Payroll::with('employee')->paginate(10);
+        $payrolls = Payroll::with(['employee', 'employee.position'])->paginate(10);
 
         return PayrollResource::collection($payrolls);
     }
@@ -44,7 +44,7 @@ class PayrollController extends Controller
      */
     public function show(Payroll $payroll)
     {
-        $payroll->load('employee');
+        $payroll->load(['employee','employee.position']);
 
         return new PayrollResource($payroll);
     }

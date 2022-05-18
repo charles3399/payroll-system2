@@ -19728,10 +19728,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         createEmployee = _useEmployee.createEmployee;
 
     var _usePosition = (0,_composables_usePosition__WEBPACK_IMPORTED_MODULE_1__["default"])(),
-        positions = _usePosition.positions,
-        allPositions = _usePosition.allPositions;
+        positionDropdown = _usePosition.positionDropdown,
+        dropdownPositions = _usePosition.dropdownPositions;
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allPositions());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownPositions());
 
     var saveEmployee = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -19758,7 +19758,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       form: form,
       errors: errors,
-      positions: positions,
+      positionDropdown: positionDropdown,
       saveEmployee: saveEmployee
     };
   }
@@ -19806,11 +19806,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         updateEmployee = _useEmployee.updateEmployee;
 
     var _usePosition = (0,_composables_usePosition__WEBPACK_IMPORTED_MODULE_1__["default"])(),
-        positions = _usePosition.positions,
-        allPositions = _usePosition.allPositions;
+        positionDropdown = _usePosition.positionDropdown,
+        dropdownPositions = _usePosition.dropdownPositions;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(getEmployee(props.id));
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allPositions());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownPositions());
 
     var saveEmployee = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -19837,7 +19837,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       errors: errors,
       employee: employee,
-      positions: positions,
+      positionDropdown: positionDropdown,
       saveEmployee: saveEmployee
     };
   }
@@ -20042,10 +20042,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         createPayroll = _usePayroll.createPayroll;
 
     var _useEmployee = (0,_composables_useEmployee__WEBPACK_IMPORTED_MODULE_2__["default"])(),
-        employees = _useEmployee.employees,
-        allEmployees = _useEmployee.allEmployees;
+        employeeDropdown = _useEmployee.employeeDropdown,
+        dropdownEmployees = _useEmployee.dropdownEmployees;
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allEmployees());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownEmployees());
 
     var savePayroll = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -20072,7 +20072,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       form: form,
       errors: errors,
-      employees: employees,
+      employeeDropdown: employeeDropdown,
       savePayroll: savePayroll
     };
   }
@@ -20120,11 +20120,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         updatePayroll = _usePayroll.updatePayroll;
 
     var _useEmployee = (0,_composables_useEmployee__WEBPACK_IMPORTED_MODULE_1__["default"])(),
-        employees = _useEmployee.employees,
-        allEmployees = _useEmployee.allEmployees;
+        employeeDropdown = _useEmployee.employeeDropdown,
+        dropdownEmployees = _useEmployee.dropdownEmployees;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(getPayroll(props.id));
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allEmployees());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownEmployees());
 
     var savePayroll = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -20151,7 +20151,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       errors: errors,
       payroll: payroll,
-      employees: employees,
+      employeeDropdown: employeeDropdown,
       savePayroll: savePayroll
     };
   }
@@ -20914,7 +20914,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.position_id = $event;
     }),
     "class": "form-select rounded-lg py-1 text-black font-bold tracking-wider"
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.positions, function (position) {
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.positionDropdown, function (position) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       "class": "font-bold tracking-wider",
       key: position.id,
@@ -21135,7 +21135,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.employee.position_id = $event;
     }),
     "class": "form-select rounded-lg py-1 text-black font-bold tracking-wider"
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.positions, function (position) {
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.positionDropdown, function (position) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       "class": "font-bold tracking-wider",
       key: position.id,
@@ -21630,7 +21630,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.employee_id = $event;
     }),
     "class": "form-select rounded-lg py-1 text-black font-bold tracking-wider"
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employees, function (employee) {
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employeeDropdown, function (employee) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       "class": "font-bold tracking-wider",
       key: employee.id,
@@ -21872,7 +21872,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.payroll.employee_id = $event;
     }),
     "class": "form-select rounded-lg py-1 text-black font-bold tracking-wider"
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employees, function (employee) {
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employeeDropdown, function (employee) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       "class": "font-bold tracking-wider",
       key: employee.id,
@@ -22343,7 +22343,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, "Lates: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.late) + " min(s)", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences) + " days", 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences) + " day(s)", 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_13, "Bonuses: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.bonuses), 1
   /* TEXT */
@@ -23037,6 +23037,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 function useEmployee() {
   var employees = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var employee = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
+  var employeeDropdown = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
   var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
 
@@ -23067,19 +23068,19 @@ function useEmployee() {
     };
   }();
 
-  var getEmployee = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+  var dropdownEmployees = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/employees/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/allEmployee');
 
             case 2:
               response = _context2.sent;
-              employee.value = response.data.data;
+              employeeDropdown.value = response.data.data;
 
             case 4:
             case "end":
@@ -23089,55 +23090,40 @@ function useEmployee() {
       }, _callee2);
     }));
 
-    return function getEmployee(_x) {
+    return function dropdownEmployees() {
       return _ref2.apply(this, arguments);
     };
   }();
 
-  var createEmployee = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(data) {
+  var getEmployee = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(id) {
+      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              errors.value = '';
-              _context3.prev = 1;
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/employees', data);
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/employees/".concat(id));
+
+            case 2:
+              response = _context3.sent;
+              employee.value = response.data.data;
 
             case 4:
-              _context3.next = 6;
-              return router.push({
-                name: 'employees.index'
-              });
-
-            case 6:
-              _context3.next = 11;
-              break;
-
-            case 8:
-              _context3.prev = 8;
-              _context3.t0 = _context3["catch"](1);
-
-              if (_context3.t0.response.status === 422) {
-                errors.value = _context3.t0.response.data.errors;
-              }
-
-            case 11:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[1, 8]]);
+      }, _callee3);
     }));
 
-    return function createEmployee(_x2) {
+    return function getEmployee(_x) {
       return _ref3.apply(this, arguments);
     };
   }();
 
-  var updateEmployee = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(id) {
+  var createEmployee = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(data) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -23145,7 +23131,7 @@ function useEmployee() {
               errors.value = '';
               _context4.prev = 1;
               _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/employees/".concat(id), employee.value);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/employees', data);
 
             case 4:
               _context4.next = 6;
@@ -23173,30 +23159,72 @@ function useEmployee() {
       }, _callee4, null, [[1, 8]]);
     }));
 
-    return function updateEmployee(_x3) {
+    return function createEmployee(_x2) {
       return _ref4.apply(this, arguments);
     };
   }();
 
-  var deleteEmployee = /*#__PURE__*/function () {
+  var updateEmployee = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/employees/".concat(id));
+              errors.value = '';
+              _context5.prev = 1;
+              _context5.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/employees/".concat(id), employee.value);
 
-            case 2:
+            case 4:
+              _context5.next = 6;
+              return router.push({
+                name: 'employees.index'
+              });
+
+            case 6:
+              _context5.next = 11;
+              break;
+
+            case 8:
+              _context5.prev = 8;
+              _context5.t0 = _context5["catch"](1);
+
+              if (_context5.t0.response.status === 422) {
+                errors.value = _context5.t0.response.data.errors;
+              }
+
+            case 11:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5);
+      }, _callee5, null, [[1, 8]]);
+    }));
+
+    return function updateEmployee(_x3) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var deleteEmployee = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/employees/".concat(id));
+
+            case 2:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
     }));
 
     return function deleteEmployee(_x4) {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
 
@@ -23206,6 +23234,8 @@ function useEmployee() {
     errors: errors,
     router: router,
     allEmployees: allEmployees,
+    employeeDropdown: employeeDropdown,
+    dropdownEmployees: dropdownEmployees,
     getEmployee: getEmployee,
     createEmployee: createEmployee,
     updateEmployee: updateEmployee,
@@ -23484,6 +23514,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 function usePosition() {
   var positions = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var position = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
+  var positionDropdown = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
   var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
 
@@ -23541,50 +23572,35 @@ function usePosition() {
     };
   }();
 
-  var createPosition = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(data) {
+  var dropdownPositions = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              errors.value = '';
-              _context3.prev = 1;
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/positions', data);
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/allPosition');
+
+            case 2:
+              response = _context3.sent;
+              positionDropdown.value = response.data.data;
 
             case 4:
-              _context3.next = 6;
-              return router.push({
-                name: 'positions.index'
-              });
-
-            case 6:
-              _context3.next = 11;
-              break;
-
-            case 8:
-              _context3.prev = 8;
-              _context3.t0 = _context3["catch"](1);
-
-              if (_context3.t0.response.status === 422) {
-                errors.value = _context3.t0.response.data.errors;
-              }
-
-            case 11:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[1, 8]]);
+      }, _callee3);
     }));
 
-    return function createPosition(_x2) {
+    return function dropdownPositions() {
       return _ref3.apply(this, arguments);
     };
   }();
 
-  var updatePosition = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(id) {
+  var createPosition = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(data) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -23592,7 +23608,7 @@ function usePosition() {
               errors.value = '';
               _context4.prev = 1;
               _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/positions/".concat(id), position.value);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/positions', data);
 
             case 4:
               _context4.next = 6;
@@ -23620,30 +23636,72 @@ function usePosition() {
       }, _callee4, null, [[1, 8]]);
     }));
 
-    return function updatePosition(_x3) {
+    return function createPosition(_x2) {
       return _ref4.apply(this, arguments);
     };
   }();
 
-  var deletePosition = /*#__PURE__*/function () {
+  var updatePosition = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/positions/".concat(id));
+              errors.value = '';
+              _context5.prev = 1;
+              _context5.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/positions/".concat(id), position.value);
 
-            case 2:
+            case 4:
+              _context5.next = 6;
+              return router.push({
+                name: 'positions.index'
+              });
+
+            case 6:
+              _context5.next = 11;
+              break;
+
+            case 8:
+              _context5.prev = 8;
+              _context5.t0 = _context5["catch"](1);
+
+              if (_context5.t0.response.status === 422) {
+                errors.value = _context5.t0.response.data.errors;
+              }
+
+            case 11:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5);
+      }, _callee5, null, [[1, 8]]);
+    }));
+
+    return function updatePosition(_x3) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var deletePosition = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/positions/".concat(id));
+
+            case 2:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
     }));
 
     return function deletePosition(_x4) {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
 
@@ -23652,6 +23710,8 @@ function usePosition() {
     position: position,
     errors: errors,
     allPositions: allPositions,
+    positionDropdown: positionDropdown,
+    dropdownPositions: dropdownPositions,
     getPosition: getPosition,
     createPosition: createPosition,
     updatePosition: updatePosition,

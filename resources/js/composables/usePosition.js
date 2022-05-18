@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 export default function usePosition() {
     const positions = ref([])
     const position = ref([])
+    const positionDropdown = ref([])
     const errors = ref('')
     const router = useRouter()
 
@@ -16,6 +17,11 @@ export default function usePosition() {
     const getPosition = async (id) => {
         let response = await axios.get(`/api/positions/${id}`)
         position.value = response.data.data
+    }
+
+    const dropdownPositions = async () => {
+        let response = await axios.get('/api/allPosition')
+        positionDropdown.value = response.data.data
     }
 
     const createPosition = async (data) => {
@@ -51,6 +57,8 @@ export default function usePosition() {
         position,
         errors,
         allPositions,
+        positionDropdown,
+        dropdownPositions,
         getPosition,
         createPosition,
         updatePosition,
