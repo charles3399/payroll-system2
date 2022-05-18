@@ -2,10 +2,6 @@
 
 namespace App\Http\Resources;
 
-use DB;
-use App\Models\Employee;
-use App\Models\Position;
-use App\Models\Payroll;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PayrollResource extends JsonResource

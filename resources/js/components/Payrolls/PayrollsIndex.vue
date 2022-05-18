@@ -9,11 +9,7 @@
                 <tr class="bg-gray-600">
                     <th class="px-4 py-3">ID</th>
                     <th class="px-4 py-3">Employee</th>
-                    <th class="px-4 py-3">Days Worked</th>
-                    <th class="px-4 py-3">Overtime</th>
-                    <th class="px-4 py-3">Late</th>
-                    <th class="px-4 py-3">Absences</th>
-                    <th class="px-4 py-3">Bonuses</th>
+                    <th class="px-4 py-3">Position</th>
                     <th class="px-4 py-3">Created At</th>
                     <th class="px-4 py-3">Actions</th>
                 </tr>
@@ -26,11 +22,7 @@
                             {{ payroll.employee_id[0].full_name }}
                         </router-link>
                     </td>
-                    <td class="px-4 py-3">{{ payroll.days_worked }}</td>
-                    <td class="px-4 py-3">{{ payroll.overtime }}</td>
-                    <td class="px-4 py-3">{{ payroll.late }}</td>
-                    <td class="px-4 py-3">{{ payroll.absences }}</td>
-                    <td class="px-4 py-3">{{ payroll.bonuses }}</td>
+                    <td class="px-4 py-3">{{ payroll.employee_id[0].position.position_name }}</td>
                     <td class="px-4 py-3">{{ payroll.created_at }}</td>
                     <td class="px-4 py-3 flex justify-between">
                         <router-link :to="{ name: 'payrolls.edit', params: {id: payroll.id} }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
