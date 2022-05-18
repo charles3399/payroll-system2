@@ -22339,11 +22339,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, "Days Worked: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.days_worked), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "Overtime: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.overtime), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "Overtime: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.overtime) + " hr(s)", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, "Lates: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.late), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, "Lates: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.late) + " min(s)", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences) + " days", 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_13, "Bonuses: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.bonuses), 1
   /* TEXT */

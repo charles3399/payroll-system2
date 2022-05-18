@@ -8,9 +8,9 @@
             <h3 class="my-2 text-xl tracking-wider">Position: {{ payroll.employee_id[0].position.position_name }}</h3>
             <h3 class="my-2 text-xl tracking-wider">Basic pay: {{ payroll.employee_id[0].position.basic_pay }}</h3>
             <h3 class="my-2 text-xl tracking-wider">Days Worked: {{ payroll.days_worked }}</h3>
-            <h3 class="my-2 text-xl tracking-wider">Overtime: {{ payroll.overtime }}</h3>
-            <h3 class="my-2 text-xl tracking-wider">Lates: {{ payroll.late }}</h3>
-            <h3 class="my-2 text-xl tracking-wider">Absences: {{ payroll.absences }}</h3>
+            <h3 class="my-2 text-xl tracking-wider">Overtime: {{ payroll.overtime }} hr(s)</h3>
+            <h3 class="my-2 text-xl tracking-wider">Lates: {{ payroll.late }} min(s)</h3>
+            <h3 class="my-2 text-xl tracking-wider">Absences: {{ payroll.absences }} days</h3>
             <h3 class="my-2 text-xl tracking-wider">Bonuses: {{ payroll.bonuses }}</h3>
             <router-link :to="{ name: 'payrolls.edit', params: { id: payroll.id } }" class="my-2 px-3 py-1 text-sm bg-green-500 hover:bg-green-700 transform duration-200 font-bold tracking-wider rounded-lg">Edit</router-link>
         </div>

@@ -874,9 +874,6 @@ select {
 .w-4 {
   width: 1rem;
 }
-.w-1\/2 {
-  width: 50%;
-}
 .table-auto {
   table-layout: auto;
 }
