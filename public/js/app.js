@@ -19652,29 +19652,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {
     var _useEmployee = (0,_composables_useEmployee__WEBPACK_IMPORTED_MODULE_0__["default"])(),
-        employees = _useEmployee.employees,
-        allEmployees = _useEmployee.allEmployees;
+        employeeDropdown = _useEmployee.employeeDropdown,
+        dropdownEmployees = _useEmployee.dropdownEmployees;
 
     var _usePosition = (0,_composables_usePosition__WEBPACK_IMPORTED_MODULE_2__["default"])(),
-        positions = _usePosition.positions,
-        allPositions = _usePosition.allPositions;
+        positionDropdown = _usePosition.positionDropdown,
+        dropdownPositions = _usePosition.dropdownPositions;
 
     var _usePayroll = (0,_composables_usePayroll__WEBPACK_IMPORTED_MODULE_1__["default"])(),
-        payrolls = _usePayroll.payrolls,
-        allPayrolls = _usePayroll.allPayrolls;
+        payrollDropdown = _usePayroll.payrollDropdown,
+        dropdownPayrolls = _usePayroll.dropdownPayrolls;
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allEmployees());
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allPositions());
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allPayrolls());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownEmployees());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownPositions());
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownPayrolls());
 
     var verify = function verify(e) {
       e === 'employees' ? alert('There are no positions, please create a position first before creating an employee') : alert('There are no existing employees, please create an employee first before creating a payroll');
     };
 
     return {
-      employees: employees,
-      positions: positions,
-      payrolls: payrolls,
+      employeeDropdown: employeeDropdown,
+      positionDropdown: positionDropdown,
+      payrollDropdown: payrollDropdown,
       verify: verify
     };
   }
@@ -20667,25 +20667,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "p-5 flex justify-center items-center"
+  "class": "p-5 flex flex-wrap justify-center items-center"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Employees");
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Employees ");
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Payrolls");
+var _hoisted_3 = {
+  "class": "text-md mt-1"
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Positions");
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Payrolls ");
 
+var _hoisted_5 = {
+  "class": "text-md mt-1"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Positions ");
+
+var _hoisted_7 = {
+  "class": "text-md mt-1"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$setup.positions.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$setup.positionDropdown.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 0,
     to: "/employees",
-    "class": "mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200"
+    "class": "m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-red-400 hover:border-red-400 transform duration-200"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_2];
+      return [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.employeeDropdown.length), 1
+      /* TEXT */
+      )];
     }),
     _: 1
     /* STABLE */
@@ -20696,13 +20709,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.verify('employees');
     }),
     "class": "mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default"
-  }, "Employees")), $setup.employees.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+  }, "Employees")), $setup.employeeDropdown.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 2,
     to: "/payrolls",
-    "class": "mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200"
+    "class": "m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-green-400 hover:border-green-400 transform duration-200"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_3];
+      return [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payrollDropdown.length), 1
+      /* TEXT */
+      )];
     }),
     _: 1
     /* STABLE */
@@ -20715,10 +20730,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default"
   }, "Payrolls")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/positions",
-    "class": "mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200"
+    "class": "m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-blue-600 hover:border-blue-600 transform duration-200"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_4];
+      return [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.positionDropdown.length), 1
+      /* TEXT */
+      )];
     }),
     _: 1
     /* STABLE */
@@ -23274,6 +23291,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 function usePayroll() {
   var payrolls = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var payroll = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
+  var payrollDropdown = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
   var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
 
@@ -23336,19 +23354,19 @@ function usePayroll() {
     };
   }();
 
-  var getPayroll = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+  var dropdownPayrolls = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/payrolls/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/allPayroll');
 
             case 2:
               response = _context2.sent;
-              payroll.value = response.data.data;
+              payrollDropdown.value = response.data.data;
 
             case 4:
             case "end":
@@ -23358,55 +23376,40 @@ function usePayroll() {
       }, _callee2);
     }));
 
-    return function getPayroll(_x) {
+    return function dropdownPayrolls() {
       return _ref2.apply(this, arguments);
     };
   }();
 
-  var createPayroll = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(data) {
+  var getPayroll = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(id) {
+      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              errors.value = '';
-              _context3.prev = 1;
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/payrolls', data);
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/payrolls/".concat(id));
+
+            case 2:
+              response = _context3.sent;
+              payroll.value = response.data.data;
 
             case 4:
-              _context3.next = 6;
-              return router.push({
-                name: 'payrolls.index'
-              });
-
-            case 6:
-              _context3.next = 11;
-              break;
-
-            case 8:
-              _context3.prev = 8;
-              _context3.t0 = _context3["catch"](1);
-
-              if (_context3.t0.response.status === 422) {
-                errors.value = _context3.t0.response.data.errors;
-              }
-
-            case 11:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[1, 8]]);
+      }, _callee3);
     }));
 
-    return function createPayroll(_x2) {
+    return function getPayroll(_x) {
       return _ref3.apply(this, arguments);
     };
   }();
 
-  var updatePayroll = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(id) {
+  var createPayroll = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(data) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -23414,7 +23417,7 @@ function usePayroll() {
               errors.value = '';
               _context4.prev = 1;
               _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/payrolls/".concat(id), payroll.value);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/payrolls', data);
 
             case 4:
               _context4.next = 6;
@@ -23442,30 +23445,72 @@ function usePayroll() {
       }, _callee4, null, [[1, 8]]);
     }));
 
-    return function updatePayroll(_x3) {
+    return function createPayroll(_x2) {
       return _ref4.apply(this, arguments);
     };
   }();
 
-  var deletePayroll = /*#__PURE__*/function () {
+  var updatePayroll = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/payrolls/".concat(id));
+              errors.value = '';
+              _context5.prev = 1;
+              _context5.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().put("/api/payrolls/".concat(id), payroll.value);
 
-            case 2:
+            case 4:
+              _context5.next = 6;
+              return router.push({
+                name: 'payrolls.index'
+              });
+
+            case 6:
+              _context5.next = 11;
+              break;
+
+            case 8:
+              _context5.prev = 8;
+              _context5.t0 = _context5["catch"](1);
+
+              if (_context5.t0.response.status === 422) {
+                errors.value = _context5.t0.response.data.errors;
+              }
+
+            case 11:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5);
+      }, _callee5, null, [[1, 8]]);
+    }));
+
+    return function updatePayroll(_x3) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var deletePayroll = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/payrolls/".concat(id));
+
+            case 2:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
     }));
 
     return function deletePayroll(_x4) {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
 
@@ -23474,6 +23519,8 @@ function usePayroll() {
     payroll: payroll,
     errors: errors,
     router: router,
+    payrollDropdown: payrollDropdown,
+    dropdownPayrolls: dropdownPayrolls,
     allPayrolls: allPayrolls,
     getPayroll: getPayroll,
     createPayroll: createPayroll,

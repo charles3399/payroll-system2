@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 export default function usePayroll() {
     const payrolls = ref([])
     const payroll = ref([])
+    const payrollDropdown = ref([])
     const errors = ref('')
     const router = useRouter()
 
@@ -34,6 +35,11 @@ export default function usePayroll() {
     const allPayrolls = async () => {
         let response = await axios.get('/api/payrolls')
         payrolls.value = response.data.data
+    }
+
+    const dropdownPayrolls = async () => {
+        let response = await axios.get('/api/allPayroll')
+        payrollDropdown.value = response.data.data
     }
 
     const getPayroll = async (id) => {
@@ -74,6 +80,8 @@ export default function usePayroll() {
         payroll,
         errors,
         router,
+        payrollDropdown,
+        dropdownPayrolls,
         allPayrolls,
         getPayroll,
         createPayroll,

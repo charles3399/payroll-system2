@@ -1,14 +1,14 @@
 <template>
-    <div class="p-5 flex justify-center items-center">
-        <router-link v-if="positions.length > 0" to="/employees" class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Employees</router-link>
+    <div class="p-5 flex flex-wrap justify-center items-center">
+        <router-link v-if="positionDropdown.length > 0" to="/employees" class="m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-red-400 hover:border-red-400 transform duration-200">Employees <p class="text-md mt-1">{{ employeeDropdown.length }}</p></router-link>
 
         <button @click="verify('employees')" v-else class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Employees</button>
 
-        <router-link v-if="employees.length > 0" to="/payrolls" class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Payrolls</router-link>
+        <router-link v-if="employeeDropdown.length > 0" to="/payrolls" class="m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-green-400 hover:border-green-400 transform duration-200">Payrolls <p class="text-md mt-1">{{ payrollDropdown.length }}</p></router-link>
 
         <button @click="verify('payrolls')" v-else class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Payrolls</button>
 
-        <router-link to="/positions" class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-white hover:text-black transform duration-200">Positions</router-link>
+        <router-link to="/positions" class="m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-blue-600 hover:border-blue-600 transform duration-200">Positions <p class="text-md mt-1">{{ positionDropdown.length }}</p></router-link>
     </div>
 </template>
 
@@ -20,22 +20,22 @@
 
     export default {
         setup() {
-            const { employees, allEmployees } = useEmployee()
-            const { positions, allPositions } = usePosition()
-            const { payrolls, allPayrolls } = usePayroll()
+            const { employeeDropdown, dropdownEmployees } = useEmployee()
+            const { positionDropdown, dropdownPositions } = usePosition()
+            const { payrollDropdown, dropdownPayrolls } = usePayroll()
             
-            onMounted(allEmployees())
-            onMounted(allPositions())
-            onMounted(allPayrolls())
+            onMounted(dropdownEmployees())
+            onMounted(dropdownPositions())
+            onMounted(dropdownPayrolls())
 
             const verify = (e) => {
                 e === 'employees' ? alert('There are no positions, please create a position first before creating an employee') : alert('There are no existing employees, please create an employee first before creating a payroll')
             }
 
             return {
-                employees,
-                positions,
-                payrolls,
+                employeeDropdown,
+                positionDropdown,
+                payrollDropdown,
                 verify,
             }
         }

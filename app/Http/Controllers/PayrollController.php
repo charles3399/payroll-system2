@@ -76,4 +76,10 @@ class PayrollController extends Controller
 
         return response()->noContent();
     }
+
+    public function showPayrolls() {
+        $payrolls = Payroll::all();
+
+        return PayrollResource::collection($payrolls);
+    }
 }

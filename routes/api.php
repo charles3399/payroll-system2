@@ -29,4 +29,5 @@ Route::middleware(['auth:sanctum'])->group(function() {
     ]);
     Route::get('allPosition', [PositionController::class, 'showPositions']);
     Route::get('allEmployee', [EmployeeController::class, 'showEmployees']);
+    Route::get('allPayroll', [PayrollController::class, 'showPayrolls']);
 });
