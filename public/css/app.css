@@ -1154,6 +1154,17 @@ select {
   --tw-text-opacity: 1;
   color: rgb(187 247 208 / var(--tw-text-opacity));
 }
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+.decoration-fuchsia-400 {
+  -webkit-text-decoration-color: #e879f9;
+          text-decoration-color: #e879f9;
+}
+.underline-offset-2 {
+  text-underline-offset: 2px;
+}
 .opacity-80 {
   opacity: 0.8;
 }
@@ -1315,6 +1326,11 @@ select {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-violet-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(167 139 250 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
