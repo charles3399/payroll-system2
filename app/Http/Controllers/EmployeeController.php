@@ -20,6 +20,7 @@ class EmployeeController extends Controller
         //$employees = Employee::with('position')->paginate(10);
 
         $employees = Employee::where('full_name', 'LIKE', '%'.$request->searchEmployee.'%')
+        ->orWhere('id', 'LIKE', '%'.$request->searchEmployee.'%')
         ->with('position')
         ->paginate(10);
 
