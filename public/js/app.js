@@ -22046,7 +22046,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = {
-  "class": "mx-24"
+  "class": "p-2 mx-4"
 };
 var _hoisted_3 = {
   "class": "flex flex-wrap justify-between mb-2"

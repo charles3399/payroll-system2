@@ -1,6 +1,6 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Payrolls</h1>
-    <div class="mx-24">
+    <div class="p-2 mx-4">
         <div class="flex flex-wrap justify-between mb-2">
             <router-link v-if="employees.length > 0" :to="{ name: 'payrolls.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Payroll</router-link>
             <div v-else></div>
