@@ -16,7 +16,9 @@ class PositionController extends Controller
      */
     public function index(Request $request)
     {
-        $positions = Position::where('position_name', 'LIKE', '%'.$request->searchPosition.'%')->paginate(10);
+        $positions = Position::where('position_name', 'LIKE', '%'.$request->searchPosition.'%')
+        ->orWhere('id', 'LIKE', '%'.$request->searchPosition.'%')
+        ->paginate(10);
 
         return PositionResource::collection($positions);
     }
