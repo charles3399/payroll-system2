@@ -1,6 +1,6 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Positions</h1>
-    <div class="p-2 mx-4 2xl:mx-64 xl:mx-64 lg:mx-64">
+    <div class="p-2 mx-4">
         <div class="flex flex-wrap justify-between mb-2">
             <router-link :to="{ name: 'positions.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Position</router-link>
             <input v-model="searchStr" type="text" placeholder="Search position..." class="form-input rounded-lg text-black h-11">
