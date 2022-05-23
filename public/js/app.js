@@ -22135,7 +22135,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.searchStr = $event;
     }),
     type: "text",
-    placeholder: "Search payroll id...",
+    placeholder: "Search payroll...",
     "class": "form-input rounded-lg text-black h-11"
   }, null, 512
   /* NEED_PATCH */

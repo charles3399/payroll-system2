@@ -19,8 +19,12 @@ class PayrollController extends Controller
     {
         $searchQuery = $request->searchPayroll;
 
-        $payrolls = Payroll::where('employee_id', 'LIKE', '%'.$searchQuery.'%')
-        ->orWhere('id', 'LIKE', '%'.$searchQuery.'%')
+        $payrolls = Payroll::whereHas('employee', function($query) use($searchQuery) {
+            $query->where('full_name', 'LIKE', '%'.$searchQuery.'%');
+        })
+        ->orWhereHas('employee.position', function($query) use($searchQuery) {
+            $query->where('position_name', 'LIKE', '%'.$searchQuery.'%');
+        })
         ->with(['employee', 'employee.position'])
         ->paginate(10);
 
