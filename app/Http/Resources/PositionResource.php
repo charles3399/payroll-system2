@@ -14,6 +14,12 @@ class PositionResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+
+        return [
+            'id' => $this->id,
+            'position_name' => $this->position_name,
+            'basic_pay' => $this->basic_pay,
+        ];
     }
 }

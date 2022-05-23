@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\PositionResource;
 
 class EmployeeResource extends JsonResource
 {
@@ -14,6 +15,15 @@ class EmployeeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+
+        return [
+            'id' => $this->id,
+            'full_name' => $this->full_name,
+            'position' => PositionResource::make($this->position),
+            'email' => $this->email,
+            'address' => $this->address,
+            'gender' => $this->gender,
+        ];
     }
 }

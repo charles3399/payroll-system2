@@ -14,14 +14,9 @@ class PositionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if(count(Position::all()) >= 10) {
-            $positions = Position::paginate(10);
-        }
-        else {
-            $positions = Position::all();
-        }
+        $positions = Position::where('position_name', 'LIKE', '%'.$request->searchPosition.'%')->paginate(10);
 
         return PositionResource::collection($positions);
     }

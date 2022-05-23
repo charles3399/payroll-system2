@@ -1,8 +1,11 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Payrolls</h1>
     <div class="mx-24">
-        <router-link v-if="employees.length > 0" :to="{ name: 'payrolls.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Payroll</router-link>
-        <div v-else></div>
+        <div class="flex flex-wrap justify-between mb-2">
+            <router-link v-if="employees.length > 0" :to="{ name: 'payrolls.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Payroll</router-link>
+            <div v-else></div>
+            <input v-model="searchStr" type="text" placeholder="Search payroll id..." class="form-input rounded-lg text-black h-11">
+        </div>
         <p class="text-center text-xl" v-if="paginatePayrolls.length === 0">No record yet...</p>
         <table v-else class="table-auto my-2 text-center w-full">
             <thead>
@@ -45,7 +48,7 @@
 <script>
     import usePayroll from '../../composables/usePayroll'
     import useEmployee from "../../composables/useEmployee"
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, watch } from 'vue';
     import LaravelVuePagination from 'laravel-vue-pagination'
     import axios from 'axios';
 
@@ -57,14 +60,24 @@
             const { deletePayroll } = usePayroll()
             const { employees, allEmployees } = useEmployee()
             const paginatePayrolls = ref([])
+            const searchStr = ref(null)
 
             const paginateData = async (page = 1) => {
-                let response = await axios.get('/api/payrolls?page=' + page)
-                paginatePayrolls.value = response.data
+                let response = await axios.get('/api/payrolls?page=' + page, {params: {page, searchPayroll: searchStr.value}})
+                .then(response => {
+                    paginatePayrolls.value = response.data
+                })
             }
 
             onMounted(paginateData)
             onMounted(allEmployees)
+
+            watch(() => searchStr.value,
+                () => {
+                    paginateData()
+                },
+                { deep: true }
+            )
 
             const destroyPayroll = async (id, name) => {
                 if(!window.confirm(`Do you want to delete the payroll for ${name}?`)) {
@@ -74,7 +87,7 @@
                 await paginateData()
             }
 
-            return { destroyPayroll, employees, paginatePayrolls, paginateData }
+            return { destroyPayroll, employees, paginatePayrolls, paginateData, searchStr }
         }
     }
 </script>

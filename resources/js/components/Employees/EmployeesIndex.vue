@@ -1,7 +1,10 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Employees</h1>
     <div class="p-2 mx-4">
-        <router-link :to="{ name: 'employees.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Employee</router-link>
+        <div class="flex flex-wrap justify-between mb-2">
+            <router-link :to="{ name: 'employees.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Employee</router-link>
+            <input v-model="searchStr" type="text" placeholder="Search employee..." class="form-input rounded-lg text-black h-11">
+        </div>
         <p class="text-center text-xl" v-if="paginateEmployees.length === 0">No record yet...</p>
         <table v-else class="table-auto my-2 text-center">
             <thead>
@@ -43,7 +46,7 @@
 
 <script>
     import useEmployee from '../../composables/useEmployee'
-    import { ref, onMounted } from 'vue'
+    import { ref, onMounted, watch } from 'vue'
     import LaravelVuePagination from 'laravel-vue-pagination'
     import axios from 'axios'
 
@@ -52,15 +55,25 @@
             'Pagination': LaravelVuePagination
         },
         setup() {
-            const { deleteEmployee } = useEmployee()
+            const { deleteEmployee, errors } = useEmployee()
             const paginateEmployees = ref([])
+            const searchStr = ref(null)
 
             const paginateData = async (page = 1) => {
-                let response = await axios.get('/api/employees?page=' + page)
-                paginateEmployees.value = response.data
+                await axios.get('/api/employees?page=' + page, {params: {page, searchEmployee: searchStr.value}})
+                .then(response => {
+                    paginateEmployees.value = response.data
+                })
             }
 
             onMounted(paginateData)
+
+            watch(() => searchStr.value,
+                () => {
+                    paginateData()
+                },
+                { deep: true }
+            )
 
             const destroyEmployee = async (id, name) => {
                 if(!window.confirm(`Do you want to delete employee: ${name}?`)) {
@@ -70,7 +83,13 @@
                 await paginateData()
             }
 
-            return { destroyEmployee, paginateData, paginateEmployees }
+            return {
+                destroyEmployee,
+                paginateData,
+                paginateEmployees,
+                errors,
+                searchStr,
+            }
         }
     }
 </script>

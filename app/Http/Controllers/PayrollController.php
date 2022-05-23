@@ -15,9 +15,14 @@ class PayrollController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $payrolls = Payroll::with(['employee', 'employee.position'])->paginate(10);
+        $searchQuery = $request->searchPayroll;
+
+        $payrolls = Payroll::where('employee_id', 'LIKE', '%'.$searchQuery.'%')
+        ->orWhere('id', 'LIKE', '%'.$searchQuery.'%')
+        ->with(['employee', 'employee.position'])
+        ->paginate(10);
 
         return PayrollResource::collection($payrolls);
     }

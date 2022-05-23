@@ -1,7 +1,10 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Positions</h1>
     <div class="p-2 mx-4 2xl:mx-64 xl:mx-64 lg:mx-64">
-        <router-link :to="{ name: 'positions.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Position</router-link>
+        <div class="flex flex-wrap justify-between mb-2">
+            <router-link :to="{ name: 'positions.create' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">+ New Position</router-link>
+            <input v-model="searchStr" type="text" placeholder="Search position..." class="form-input rounded-lg text-black h-11">
+        </div>
         <p class="text-center text-xl" v-if="paginatePositions.length === 0">No record yet...</p>
         <table v-else class="table-auto my-2 text-center w-full">
             <thead>
@@ -37,7 +40,7 @@
 
 <script>
     import usePosition from '../../composables/usePosition'
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, watch } from 'vue';
     import LaravelVuePagination from 'laravel-vue-pagination'
     import axios from 'axios'
 
@@ -48,13 +51,23 @@
         setup() {
             const { deletePosition } = usePosition()
             const paginatePositions = ref([])
+            const searchStr = ref(null)
 
             const paginateData = async (page = 1) => {
-                let response = await axios.get('/api/positions?page=' + page)
-                paginatePositions.value = response.data
+                await axios.get('/api/positions?page=' + page, {params: {page, searchPosition: searchStr.value}})
+                .then(response => {
+                    paginatePositions.value = response.data
+                })
             }
 
             onMounted(paginateData)
+
+            watch(() => searchStr.value,
+                () => {
+                    paginateData()
+                },
+                { deep: true }
+            )
 
             const destroyPosition = async (id, name) => {
                 if(!window.confirm(`Do you want to delete the position: ${name}?`)) {
@@ -64,7 +77,7 @@
                 await paginateData()
             }
 
-            return { destroyPosition, paginatePositions, paginateData }
+            return { destroyPosition, paginatePositions, paginateData, searchStr }
         }
     }
 </script>
