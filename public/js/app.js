@@ -21937,7 +21937,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "employee_id",
     id: "employee_id",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $setup.payroll.employee_id[0].id = $event;
+      return $setup.payroll.employee_id = $event;
     }),
     "class": "form-select rounded-lg py-1 text-black font-bold tracking-wider"
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employeeDropdown, function (employee) {
@@ -21952,7 +21952,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* KEYED_FRAGMENT */
   ))], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.payroll.employee_id[0].id]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.payroll.employee_id]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "number",
     name: "days_worked",
     id: "days_worked",
@@ -22161,7 +22161,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": "hover:underline"
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(payroll.employee_id[0].full_name), 1
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(payroll.employee[0].full_name), 1
             /* TEXT */
             )];
           }),
@@ -22170,7 +22170,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
-        , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(payroll.employee_id[0].position.position_name), 1
+        , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(payroll.employee[0].position.position_name), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(payroll.created_at), 1
         /* TEXT */
@@ -22193,7 +22193,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* PROPS, DYNAMIC_SLOTS */
         , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           onClick: function onClick($event) {
-            return $setup.destroyPayroll(payroll.id, payroll.employee_id[0].full_name);
+            return $setup.destroyPayroll(payroll.id, payroll.employee[0].full_name);
           },
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1"
         }, "Delete", 8
@@ -22393,7 +22393,7 @@ var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, "Payroll for: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].full_name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, "Payroll for: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].full_name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -22411,11 +22411,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_5, "ID: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.id), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_6, "Employee: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].full_name), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_6, "Employee: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].full_name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, "Position: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].position.position_name), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, "Position: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].position.position_name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_8, "Basic pay: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].position.basic_pay), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_8, "Basic pay: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].position.basic_pay), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, "Days Worked: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.days_worked), 1
   /* TEXT */
@@ -22444,29 +22444,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).monthly)), 1
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).monthly)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).overtime_final)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).overtime_final)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).gross_income)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).gross_income)), 1
   /* TEXT */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).sss)), 1
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).sss)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).hdmf)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).hdmf)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).philhealth)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).philhealth)), 1
   /* TEXT */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).late_overall)), 1
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).late_overall)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).absent_overall)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).absent_overall)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).total_deductions)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).total_deductions)), 1
   /* TEXT */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Total Pay for " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee_id[0].full_name) + ": ", 1
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Total Pay for " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].full_name) + ": ", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee_id[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).net_pay)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).net_pay)), 1
   /* TEXT */
   )]), _hoisted_36])])])], 64
   /* STABLE_FRAGMENT */

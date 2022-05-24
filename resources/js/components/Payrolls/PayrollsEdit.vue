@@ -13,7 +13,7 @@
             <form @submit.prevent="savePayroll">
                 <div class="p-5">
                     <label for="employee_id" class="font-bold tracking-wider block mb-2">Employee</label>
-                    <select name="employee_id" id="employee_id" v-model="payroll.employee_id[0].id" class="form-select rounded-lg py-1 text-black font-bold tracking-wider">
+                    <select name="employee_id" id="employee_id" v-model="payroll.employee_id" class="form-select rounded-lg py-1 text-black font-bold tracking-wider">
                         <option class="font-bold tracking-wider" v-for="employee in employeeDropdown" :key="employee.id" :value="employee.id">{{ employee.full_name }}</option>
                     </select>
                 </div>

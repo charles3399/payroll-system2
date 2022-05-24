@@ -15,18 +15,18 @@ class PayrollResource extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
+        return parent::toArray($request);
 
-        return [
-            'id' => $this->id,
-            'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')),
-            'days_worked' => $this->days_worked,
-            'overtime' => $this->overtime,
-            'late' => $this->late,
-            'absences' => $this->absences,
-            'bonuses' => $this->bonuses,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ];
+        // return [
+        //     'id' => $this->id,
+        //     'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')),
+        //     'days_worked' => $this->days_worked,
+        //     'overtime' => $this->overtime,
+        //     'late' => $this->late,
+        //     'absences' => $this->absences,
+        //     'bonuses' => $this->bonuses,
+        //     'created_at' => $this->created_at,
+        //     'updated_at' => $this->updated_at,
+        // ];
     }
 }

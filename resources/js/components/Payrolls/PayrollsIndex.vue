@@ -22,14 +22,14 @@
                     <td class="px-4 py-3">{{ payroll.id }}</td>
                     <td class="px-4 py-3">
                         <router-link :to="{ name: 'payrolls.show', params: { id: payroll.id } }" class="hover:underline">
-                            {{ payroll.employee_id[0].full_name }}
+                            {{ payroll.employee[0].full_name }}
                         </router-link>
                     </td>
-                    <td class="px-4 py-3">{{ payroll.employee_id[0].position.position_name }}</td>
+                    <td class="px-4 py-3">{{ payroll.employee[0].position.position_name }}</td>
                     <td class="px-4 py-3">{{ payroll.created_at }}</td>
                     <td class="px-4 py-3 flex justify-between">
                         <router-link :to="{ name: 'payrolls.edit', params: {id: payroll.id} }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
-                        <button @click="destroyPayroll(payroll.id, payroll.employee_id[0].full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
+                        <button @click="destroyPayroll(payroll.id, payroll.employee[0].full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
                     </td>
                 </tr>
             </transition-group>
