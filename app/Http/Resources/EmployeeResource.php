@@ -20,7 +20,7 @@ class EmployeeResource extends JsonResource
         return [
             'id' => $this->id,
             'full_name' => $this->full_name,
-            'position' => PositionResource::make($this->position),
+            'position' => PositionResource::make($this->whenLoaded('position')),
             'email' => $this->email,
             'address' => $this->address,
             'gender' => $this->gender,
