@@ -51,7 +51,7 @@ export default function usePayroll() {
         errors.value = ''
         try {
             await axios.post('/api/payrolls', data)
-            await router.push({name: 'payrolls.index'})
+            await router.push({name: 'All Payrolls'})
         } catch (e) {
             if(e.response.status === 422) {
                 errors.value = e.response.data.errors
@@ -63,7 +63,7 @@ export default function usePayroll() {
         errors.value = ''
         try {
             await axios.put(`/api/payrolls/${id}`, payroll.value)
-            await router.push({name: 'payrolls.index'})
+            await router.push({name: 'All Payrolls'})
         } catch (e) {
             if(e.response.status === 422) {
                 errors.value = e.response.data.errors

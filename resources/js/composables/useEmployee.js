@@ -28,7 +28,7 @@ export default function useEmployee() {
         errors.value = ''
         try {
             await axios.post('/api/employees', data)
-            await router.push({name: 'employees.index'})
+            await router.push({name: 'All Employees'})
         } catch (e) {
             if(e.response.status === 422) {
                 errors.value = e.response.data.errors
@@ -40,7 +40,7 @@ export default function useEmployee() {
         errors.value = ''
         try {
             await axios.put(`/api/employees/${id}`, employee.value)
-            await router.push({name: 'employees.index'})
+            await router.push({name: 'All Employees'})
         } catch (e) {
             if(e.response.status === 422) {
                 errors.value = e.response.data.errors

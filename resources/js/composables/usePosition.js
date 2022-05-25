@@ -28,7 +28,7 @@ export default function usePosition() {
         errors.value = ''
         try {
             await axios.post('/api/positions', data)
-            await router.push({name: 'positions.index'})
+            await router.push({name: 'All Positions'})
         } catch (e) {
             if(e.response.status === 422) {
                 errors.value = e.response.data.errors
@@ -40,7 +40,7 @@ export default function usePosition() {
         errors.value = ''
         try {
             await axios.put(`/api/positions/${id}`, position.value)
-            await router.push({name: 'positions.index'})
+            await router.push({name: 'All Positions'})
         } catch (e) {
             if(e.response.status === 422) {
                 errors.value = e.response.data.errors

@@ -21,13 +21,13 @@
             <transition-group appear tag="tbody" name="fade">
                 <tr v-for="employee in paginateEmployees.data" :key="employee.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ employee.id }}</td>
-                    <td class="px-6 py-3"><router-link :to="{ name: 'Employee Information', params: { id: employee.id } }" class="hover:underline">{{ employee.full_name }}</router-link></td>
+                    <td class="px-6 py-3"><router-link :to="{ name: 'Employee Information', params: { id: employee.id, title: employee.full_name } }" class="hover:underline">{{ employee.full_name }}</router-link></td>
                     <td class="px-6 py-3">{{ employee.email }}</td>
                     <td class="px-6 py-3">{{ employee.address }}</td>
                     <td class="px-6 py-3">{{ employee.gender }}</td>
                     <td class="px-6 py-3">{{ employee.position.position_name }}</td>
                     <td class="px-6 py-3 flex justify-between">
-                        <router-link :to="{ name: 'Edit Employee', params: { id: employee.id } }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
+                        <router-link :to="{ name: 'Edit Employee', params: { id: employee.id, title: employee.full_name } }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
                         <button @click="destroyEmployee(employee.id, employee.full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
                     </td>
                 </tr>

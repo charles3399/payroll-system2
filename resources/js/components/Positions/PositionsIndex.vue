@@ -18,10 +18,10 @@
             <transition-group appear name="fade" tag="tbody">
                 <tr v-for="position in paginatePositions.data" :key="position.id" class="bg-slate-700">
                     <td class="px-6 py-3">{{ position.id }}</td>
-                    <td class="px-6 py-3"><router-link :to="{ name: 'Position Information', params: { id: position.id } }" class="hover:underline">{{ position.position_name }}</router-link></td>
+                    <td class="px-6 py-3"><router-link :to="{ name: 'Position Information', params: { id: position.id, title: position.position_name } }" class="hover:underline">{{ position.position_name }}</router-link></td>
                     <td class="px-6 py-3">{{ position.basic_pay }}</td>
                     <td class="px-6 py-3 flex justify-center">
-                        <router-link :to="{ name: 'Edit Position', params: { id: position.id } }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
+                        <router-link :to="{ name: 'Edit Position', params: { id: position.id, title: position.position_name } }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
                         <button @click="destroyPosition(position.id, position.position_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
                     </td>
                 </tr>

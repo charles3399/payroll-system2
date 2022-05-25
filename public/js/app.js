@@ -21106,7 +21106,7 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'All Employees'
     },
@@ -21211,9 +21211,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   })])], 32
   /* HYDRATE_EVENTS */
-  )])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  )])])]);
 }
 
 /***/ }),
@@ -21352,7 +21350,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           to: {
             name: 'Employee Information',
             params: {
-              id: employee.id
+              id: employee.id,
+              title: employee.full_name
             }
           },
           "class": "hover:underline"
@@ -21379,7 +21378,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           to: {
             name: 'Edit Employee',
             params: {
-              id: employee.id
+              id: employee.id,
+              title: employee.full_name
             }
           },
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1"
@@ -21479,7 +21479,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.employee.full_name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.employee.full_name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -21522,9 +21522,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  , ["to"])])])]);
 }
 
 /***/ }),
@@ -21883,7 +21881,7 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'All Payrolls'
     },
@@ -21998,9 +21996,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   })])], 32
   /* HYDRATE_EVENTS */
-  )])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  )])])]);
 }
 
 /***/ }),
@@ -22133,7 +22129,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           to: {
             name: 'Payroll Information',
             params: {
-              id: payroll.id
+              id: payroll.id,
+              title: payroll.employee[0].full_name
             }
           },
           "class": "hover:underline"
@@ -22156,7 +22153,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           to: {
             name: 'Edit Payroll',
             params: {
-              id: payroll.id
+              id: payroll.id,
+              title: payroll.employee[0].full_name
             }
           },
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1"
@@ -22371,7 +22369,7 @@ var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, "Payroll for: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].full_name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, "Payroll for: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.employee[0].full_name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -22444,9 +22442,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).net_pay)), 1
   /* TEXT */
-  )]), _hoisted_36])])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  )]), _hoisted_36])])])]);
 }
 
 /***/ }),
@@ -22666,7 +22662,7 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'All Positions'
     },
@@ -22732,9 +22728,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   })])], 32
   /* HYDRATE_EVENTS */
-  )])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  )])])]);
 }
 
 /***/ }),
@@ -22858,7 +22852,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           to: {
             name: 'Position Information',
             params: {
-              id: position.id
+              id: position.id,
+              title: position.position_name
             }
           },
           "class": "hover:underline"
@@ -22879,7 +22874,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           to: {
             name: 'Edit Position',
             params: {
-              id: position.id
+              id: position.id,
+              title: position.position_name
             }
           },
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1"
@@ -22967,7 +22963,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.position.position_name), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.position.position_name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -23002,9 +22998,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  , ["to"])])])]);
 }
 
 /***/ }),
@@ -23192,7 +23186,7 @@ function useEmployee() {
             case 4:
               _context4.next = 6;
               return router.push({
-                name: 'employees.index'
+                name: 'All Employees'
               });
 
             case 6:
@@ -23234,7 +23228,7 @@ function useEmployee() {
             case 4:
               _context5.next = 6;
               return router.push({
-                name: 'employees.index'
+                name: 'All Employees'
               });
 
             case 6:
@@ -23461,7 +23455,7 @@ function usePayroll() {
             case 4:
               _context4.next = 6;
               return router.push({
-                name: 'payrolls.index'
+                name: 'All Payrolls'
               });
 
             case 6:
@@ -23503,7 +23497,7 @@ function usePayroll() {
             case 4:
               _context5.next = 6;
               return router.push({
-                name: 'payrolls.index'
+                name: 'All Payrolls'
               });
 
             case 6:
@@ -23699,7 +23693,7 @@ function usePosition() {
             case 4:
               _context4.next = 6;
               return router.push({
-                name: 'positions.index'
+                name: 'All Positions'
               });
 
             case 6:
@@ -23741,7 +23735,7 @@ function usePosition() {
             case 4:
               _context5.next = 6;
               return router.push({
-                name: 'positions.index'
+                name: 'All Positions'
               });
 
             case 6:
@@ -23861,12 +23855,12 @@ var routes = [{
   name: 'Create Employee',
   component: _components_Employees_EmployeesCreate_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
-  path: '/employees/:id/edit',
+  path: '/employees/:id/edit/:title',
   name: 'Edit Employee',
   component: _components_Employees_EmployeesEdit_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: true
 }, {
-  path: '/employees/:id',
+  path: '/employees/:id/:title',
   name: 'Employee Information',
   component: _components_Employees_EmployeesShow_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: true
@@ -23879,12 +23873,12 @@ var routes = [{
   name: 'Create Position',
   component: _components_Positions_PositionsCreate_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, {
-  path: '/positions/:id/edit',
+  path: '/positions/:id/edit/:title',
   name: 'Edit Position',
   component: _components_Positions_PositionsEdit_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
   props: true
 }, {
-  path: '/positions/:id',
+  path: '/positions/:id/:title',
   name: 'Position Information',
   component: _components_Positions_PositionsShow_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
   props: true
@@ -23897,12 +23891,12 @@ var routes = [{
   name: 'Create Payroll',
   component: _components_Payrolls_PayrollsCreate_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
-  path: '/payrolls/:id/edit',
+  path: '/payrolls/:id/edit/:title',
   name: 'Edit Payroll',
   component: _components_Payrolls_PayrollsEdit_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
   props: true
 }, {
-  path: '/payrolls/:id',
+  path: '/payrolls/:id/:title',
   name: 'Payroll Information',
   component: _components_Payrolls_PayrollsShow_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
   props: true
@@ -23916,7 +23910,13 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_14__.createRouter)({
   routes: routes
 });
 router.beforeEach(function (to, from, next) {
+  console.log(to);
   var documentTitle = "".concat(to.name);
+
+  if (to.params.title) {
+    documentTitle += " - ".concat(to.params.title);
+  }
+
   document.title = documentTitle;
   next();
 });

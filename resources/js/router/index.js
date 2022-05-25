@@ -32,13 +32,13 @@ const routes = [
         component: EmployeesCreate
     },
     {
-        path: '/employees/:id/edit',
+        path: '/employees/:id/edit/:title',
         name: 'Edit Employee',
         component: EmployeesEdit,
         props: true
     },
     {
-        path: '/employees/:id',
+        path: '/employees/:id/:title',
         name: 'Employee Information',
         component: EmployeesShow,
         props: true
@@ -54,13 +54,13 @@ const routes = [
         component: PositionsCreate
     },
     {
-        path: '/positions/:id/edit',
+        path: '/positions/:id/edit/:title',
         name: 'Edit Position',
         component: PositionsEdit,
         props: true
     },
     {
-        path: '/positions/:id',
+        path: '/positions/:id/:title',
         name: 'Position Information',
         component: PositionsShow,
         props: true
@@ -76,13 +76,13 @@ const routes = [
         component: PayrollsCreate
     },
     {
-        path: '/payrolls/:id/edit',
+        path: '/payrolls/:id/edit/:title',
         name: 'Edit Payroll',
         component: PayrollsEdit,
         props: true
     },
     {
-        path: '/payrolls/:id',
+        path: '/payrolls/:id/:title',
         name: 'Payroll Information',
         component: PayrollsShow,
         props: true
@@ -100,7 +100,11 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+    console.log(to)
     let documentTitle = `${to.name}`
+    if(to.params.title) {
+        documentTitle += ` - ${to.params.title}`
+    }
     document.title = documentTitle
     next()
 })
