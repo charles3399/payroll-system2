@@ -18,83 +18,91 @@ import PageNotFound from "../404.vue"
 const routes = [
     {
         path: '/dashboard',
-        name: 'dashboard',
+        name: 'Dashboard',
         component: Main
     },
     {
         path: '/employees',
-        name: 'employees.index',
+        name: 'All Employees',
         component: EmployeesIndex
     },
     {
         path: '/employees/create',
-        name: 'employees.create',
+        name: 'Create Employee',
         component: EmployeesCreate
     },
     {
         path: '/employees/:id/edit',
-        name: 'employees.edit',
+        name: 'Edit Employee',
         component: EmployeesEdit,
         props: true
     },
     {
         path: '/employees/:id',
-        name: 'employees.show',
+        name: 'Employee Information',
         component: EmployeesShow,
         props: true
     },
     {
         path: '/positions',
-        name: 'positions.index',
+        name: 'All Positions',
         component: PositionsIndex
     },
     {
         path: '/positions/create',
-        name: 'positions.create',
+        name: 'Create Position',
         component: PositionsCreate
     },
     {
         path: '/positions/:id/edit',
-        name: 'positions.edit',
+        name: 'Edit Position',
         component: PositionsEdit,
         props: true
     },
     {
         path: '/positions/:id',
-        name: 'positions.show',
+        name: 'Position Information',
         component: PositionsShow,
         props: true
     },
     {
         path: '/payrolls',
-        name: 'payrolls.index',
+        name: 'All Payrolls',
         component: PayrollsIndex
     },
     {
         path: '/payrolls/create',
-        name: 'payrolls.create',
+        name: 'Create Payroll',
         component: PayrollsCreate
     },
     {
         path: '/payrolls/:id/edit',
-        name: 'payrolls.edit',
+        name: 'Edit Payroll',
         component: PayrollsEdit,
         props: true
     },
     {
         path: '/payrolls/:id',
-        name: 'payrolls.show',
+        name: 'Payroll Information',
         component: PayrollsShow,
         props: true
     },
     {
         path: '/:catchAll(.*)',
-        name: '404',
+        name: 'LaraPayroll',
         component: PageNotFound
     }
 ]
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes
 })
+
+router.beforeEach((to, from, next) => {
+    let documentTitle = `${to.name}`
+    document.title = documentTitle
+    next()
+})
+
+export default router

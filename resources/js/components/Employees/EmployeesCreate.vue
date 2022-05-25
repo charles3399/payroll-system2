@@ -1,7 +1,7 @@
 <template>
     <h1 class="text-2xl tracking-wide text-center">Create Employee</h1>
     <div class="p-2 mx-4 2xl:mx-64 xl:mx-64 lg:mx-64">
-        <router-link :to="{ name: 'employees.index' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">All Employees</router-link>
+        <router-link :to="{ name: 'All Employees' }" class="px-3 py-2 my-2 inline-block bg-cyan-500 hover:bg-cyan-700 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">All Employees</router-link>
         <div class="my-2 px-5 py-3 bg-gray-700 rounded-lg">
             <div v-if="errors" class="p-3 my-2">
                 <div v-for="(value, key) in errors" :key="key" class="bg-red-400 p-2 mb-2 font-bold rounded-lg">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="p-5">
                     <button type="submit" class="px-5 py-1 text-sm mx-2 bg-green-500 font-bold tracking-wider rounded-lg hover:bg-green-700 transform duration-200">Create</button>
-                    <router-link :to="{ name: 'employees.index' }" class="px-5 py-1 mx-2 bg-slate-600 hover:bg-slate-800 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">Cancel</router-link>
+                    <router-link :to="{ name: 'All Employees' }" class="px-5 py-1 mx-2 bg-slate-600 hover:bg-slate-800 transform duration-200 rounded-lg text-sm font-bold tracking-wider text-center">Cancel</router-link>
                 </div>
             </form>
         </div>
