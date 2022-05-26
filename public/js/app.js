@@ -23910,7 +23910,6 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_14__.createRouter)({
   routes: routes
 });
 router.beforeEach(function (to, from, next) {
-  console.log(to);
   var documentTitle = "".concat(to.name);
 
   if (to.params.title) {
