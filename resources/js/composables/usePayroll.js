@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import moment from 'moment';
 
 export default function usePayroll() {
     const payrolls = ref([])
@@ -8,6 +9,7 @@ export default function usePayroll() {
     const payrollDropdown = ref([])
     const errors = ref('')
     const router = useRouter()
+    const searchStr = ref(null)
 
     const payrollCompute = (basic_pay, days_worked, overtime, bonuses, late, absences) => {
         //Earnings
@@ -32,9 +34,15 @@ export default function usePayroll() {
         return { monthly, overtime_final, bonuses, gross_income, sss, hdmf, philhealth, late_overall, absent_overall, total_deductions, net_pay }
     }
 
-    const allPayrolls = async () => {
-        let response = await axios.get('/api/payrolls')
-        payrolls.value = response.data.data
+    const timeFormat = (time) => {
+        return moment(time).format('LLL')
+    }
+
+    const paginateData = async (page = 1) => {
+        await axios.get('/api/payrolls?page=' + page, {params: {page, searchPayroll: searchStr.value}})
+        .then(response => {
+            payrolls.value = response.data
+        })
     }
 
     const dropdownPayrolls = async () => {
@@ -81,8 +89,10 @@ export default function usePayroll() {
         errors,
         router,
         payrollDropdown,
+        searchStr,
+        timeFormat,
         dropdownPayrolls,
-        allPayrolls,
+        paginateData,
         getPayroll,
         createPayroll,
         updatePayroll,

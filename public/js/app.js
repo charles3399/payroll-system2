@@ -20154,10 +20154,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _composables_useEmployee__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../composables/useEmployee */ "./resources/js/composables/useEmployee.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.es.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -20168,65 +20164,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     'Pagination': laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   setup: function setup() {
-    var _usePayroll = (0,_composables_usePayroll__WEBPACK_IMPORTED_MODULE_1__["default"])(),
-        deletePayroll = _usePayroll.deletePayroll;
-
     var _useEmployee = (0,_composables_useEmployee__WEBPACK_IMPORTED_MODULE_2__["default"])(),
-        employees = _useEmployee.employees,
-        allEmployees = _useEmployee.allEmployees;
+        dropdownEmployees = _useEmployee.dropdownEmployees,
+        employeeDropdown = _useEmployee.employeeDropdown;
 
-    var paginatePayrolls = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)([]);
-    var searchStr = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(null);
-
-    var timeFormat = function timeFormat(time) {
-      return moment__WEBPACK_IMPORTED_MODULE_6___default()(time).format('LLL');
-    };
-
-    var paginateData = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var page,
-            response,
-            _args = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
-                _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/api/payrolls?page=' + page, {
-                  params: {
-                    page: page,
-                    searchPayroll: searchStr.value
-                  }
-                }).then(function (response) {
-                  paginatePayrolls.value = response.data;
-                });
-
-              case 3:
-                response = _context.sent;
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function paginateData() {
-        return _ref.apply(this, arguments);
-      };
-    }();
+    var _usePayroll = (0,_composables_usePayroll__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+        payrolls = _usePayroll.payrolls,
+        searchStr = _usePayroll.searchStr,
+        paginateData = _usePayroll.paginateData,
+        deletePayroll = _usePayroll.deletePayroll,
+        timeFormat = _usePayroll.timeFormat;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(paginateData);
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(allEmployees);
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(dropdownEmployees);
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
       return searchStr.value;
     }, function () {
@@ -20236,43 +20191,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     });
 
     var destroyPayroll = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id, name) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(id, name) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
                 if (window.confirm("Do you want to delete the payroll for ".concat(name, "?"))) {
-                  _context2.next = 2;
+                  _context.next = 2;
                   break;
                 }
 
-                return _context2.abrupt("return");
+                return _context.abrupt("return");
 
               case 2:
-                _context2.next = 4;
+                _context.next = 4;
                 return deletePayroll(id);
 
               case 4:
-                _context2.next = 6;
+                _context.next = 6;
                 return paginateData();
 
               case 6:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
+        }, _callee);
       }));
 
       return function destroyPayroll(_x, _x2) {
-        return _ref2.apply(this, arguments);
+        return _ref.apply(this, arguments);
       };
     }();
 
     return {
       destroyPayroll: destroyPayroll,
-      employees: employees,
-      paginatePayrolls: paginatePayrolls,
+      employeeDropdown: employeeDropdown,
+      payrolls: payrolls,
       paginateData: paginateData,
       searchStr: searchStr,
       timeFormat: timeFormat
@@ -22029,7 +21984,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_Pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Pagination");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$setup.employees.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$setup.employeeDropdown.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 0,
     to: {
       name: 'Create Payroll'
@@ -22051,13 +22006,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "form-input rounded-lg text-black h-11"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchStr]])]), $setup.paginatePayrolls.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, "No record yet...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchStr]])]), $setup.payrolls.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, "No record yet...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
     appear: "",
     name: "fade",
     tag: "tbody"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.paginatePayrolls.data, function (payroll) {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.payrolls.data, function (payroll) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
           key: payroll.id,
           "class": "bg-slate-700"
@@ -22121,7 +22076,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
-    data: $setup.paginatePayrolls,
+    data: $setup.payrolls,
     onPaginationChangePage: $setup.paginateData,
     limit: 2
   }, {
@@ -23256,7 +23211,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -23266,12 +23223,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 function usePayroll() {
   var payrolls = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var payroll = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var payrollDropdown = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
-  var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
+  var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.useRouter)();
+  var searchStr = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(null);
 
   var payrollCompute = function payrollCompute(basic_pay, days_worked, overtime, bonuses, late, absences) {
     //Earnings
@@ -23305,21 +23264,30 @@ function usePayroll() {
     };
   };
 
-  var allPayrolls = /*#__PURE__*/function () {
+  var timeFormat = function timeFormat(time) {
+    return moment__WEBPACK_IMPORTED_MODULE_3___default()(time).format('LLL');
+  };
+
+  var paginateData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response;
+      var page,
+          _args = arguments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/payrolls');
+              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/payrolls?page=' + page, {
+                params: {
+                  page: page,
+                  searchPayroll: searchStr.value
+                }
+              }).then(function (response) {
+                payrolls.value = response.data;
+              });
 
-            case 2:
-              response = _context.sent;
-              payrolls.value = response.data.data;
-
-            case 4:
+            case 3:
             case "end":
               return _context.stop();
           }
@@ -23327,7 +23295,7 @@ function usePayroll() {
       }, _callee);
     }));
 
-    return function allPayrolls() {
+    return function paginateData() {
       return _ref.apply(this, arguments);
     };
   }();
@@ -23498,8 +23466,10 @@ function usePayroll() {
     errors: errors,
     router: router,
     payrollDropdown: payrollDropdown,
+    searchStr: searchStr,
+    timeFormat: timeFormat,
     dropdownPayrolls: dropdownPayrolls,
-    allPayrolls: allPayrolls,
+    paginateData: paginateData,
     getPayroll: getPayroll,
     createPayroll: createPayroll,
     updatePayroll: updatePayroll,
