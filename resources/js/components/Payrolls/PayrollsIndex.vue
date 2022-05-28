@@ -26,7 +26,7 @@
                         </router-link>
                     </td>
                     <td class="px-4 py-3">{{ payroll.employee[0].position.position_name }}</td>
-                    <td class="px-4 py-3">{{ payroll.created_at }}</td>
+                    <td class="px-4 py-3">{{ timeFormat(payroll.created_at) }}</td>
                     <td class="px-4 py-3 flex justify-between">
                         <router-link :to="{ name: 'Edit Payroll', params: {id: payroll.id, title: payroll.employee[0].full_name} }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
                         <button @click="destroyPayroll(payroll.id, payroll.employee[0].full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
@@ -51,6 +51,7 @@
     import { ref, onMounted, watch } from 'vue';
     import LaravelVuePagination from 'laravel-vue-pagination'
     import axios from 'axios';
+    import moment from 'moment';
 
     export default {
         components: {
@@ -61,6 +62,10 @@
             const { employees, allEmployees } = useEmployee()
             const paginatePayrolls = ref([])
             const searchStr = ref(null)
+
+            const timeFormat = (time) => {
+                return moment(time).format('LLL')
+            }
 
             const paginateData = async (page = 1) => {
                 let response = await axios.get('/api/payrolls?page=' + page, {params: {page, searchPayroll: searchStr.value}})
@@ -87,7 +92,14 @@
                 await paginateData()
             }
 
-            return { destroyPayroll, employees, paginatePayrolls, paginateData, searchStr }
+            return {
+                destroyPayroll,
+                employees,
+                paginatePayrolls,
+                paginateData,
+                searchStr,
+                timeFormat,
+            }
         }
     }
 </script>
