@@ -8,10 +8,13 @@ export default function usePosition() {
     const positionDropdown = ref([])
     const errors = ref('')
     const router = useRouter()
+    const searchStr = ref(null)
 
-    const allPositions = async () => {
-        let response = await axios.get('/api/positions')
-        positions.value = response.data.data
+    const paginateData = async (page = 1) => {
+        await axios.get('/api/positions?page=' + page, {params: {page, searchPosition: searchStr.value}})
+        .then(response => {
+            positions.value = response.data
+        })
     }
 
     const getPosition = async (id) => {
@@ -56,8 +59,9 @@ export default function usePosition() {
         positions,
         position,
         errors,
-        allPositions,
         positionDropdown,
+        searchStr,
+        paginateData,
         dropdownPositions,
         getPosition,
         createPosition,

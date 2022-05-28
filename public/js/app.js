@@ -20484,14 +20484,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _composables_usePosition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../composables/usePosition */ "./resources/js/composables/usePosition.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.es.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 
@@ -20502,42 +20499,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   setup: function setup() {
     var _usePosition = (0,_composables_usePosition__WEBPACK_IMPORTED_MODULE_1__["default"])(),
-        deletePosition = _usePosition.deletePosition;
-
-    var paginatePositions = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)([]);
-    var searchStr = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(null);
-
-    var paginateData = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var page,
-            _args = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
-                _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_4___default().get('/api/positions?page=' + page, {
-                  params: {
-                    page: page,
-                    searchPosition: searchStr.value
-                  }
-                }).then(function (response) {
-                  paginatePositions.value = response.data;
-                });
-
-              case 3:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function paginateData() {
-        return _ref.apply(this, arguments);
-      };
-    }();
+        deletePosition = _usePosition.deletePosition,
+        positions = _usePosition.positions,
+        paginateData = _usePosition.paginateData,
+        searchStr = _usePosition.searchStr;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(paginateData);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.watch)(function () {
@@ -20549,42 +20514,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     });
 
     var destroyPosition = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id, name) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(id, name) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
                 if (window.confirm("Do you want to delete the position: ".concat(name, "?"))) {
-                  _context2.next = 2;
+                  _context.next = 2;
                   break;
                 }
 
-                return _context2.abrupt("return");
+                return _context.abrupt("return");
 
               case 2:
-                _context2.next = 4;
+                _context.next = 4;
                 return deletePosition(id);
 
               case 4:
-                _context2.next = 6;
+                _context.next = 6;
                 return paginateData();
 
               case 6:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
+        }, _callee);
       }));
 
       return function destroyPosition(_x, _x2) {
-        return _ref2.apply(this, arguments);
+        return _ref.apply(this, arguments);
       };
     }();
 
     return {
       destroyPosition: destroyPosition,
-      paginatePositions: paginatePositions,
+      positions: positions,
       paginateData: paginateData,
       searchStr: searchStr
     };
@@ -22809,13 +22774,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "form-input rounded-lg text-black h-11"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchStr]])]), $setup.paginatePositions.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "No record yet...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchStr]])]), $setup.positions.length === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "No record yet...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
     appear: "",
     name: "fade",
     tag: "tbody"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.paginatePositions.data, function (position) {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.positions.data, function (position) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
           key: position.id,
           "class": "bg-slate-700"
@@ -22877,7 +22842,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
-    data: $setup.paginatePositions,
+    data: $setup.positions,
     onPaginationChangePage: $setup.paginateData,
     limit: 2
   }, {
@@ -23577,22 +23542,28 @@ function usePosition() {
   var positionDropdown = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
   var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
+  var searchStr = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(null);
 
-  var allPositions = /*#__PURE__*/function () {
+  var paginateData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response;
+      var page,
+          _args = arguments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/positions');
+              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/positions?page=' + page, {
+                params: {
+                  page: page,
+                  searchPosition: searchStr.value
+                }
+              }).then(function (response) {
+                positions.value = response.data;
+              });
 
-            case 2:
-              response = _context.sent;
-              positions.value = response.data.data;
-
-            case 4:
+            case 3:
             case "end":
               return _context.stop();
           }
@@ -23600,7 +23571,7 @@ function usePosition() {
       }, _callee);
     }));
 
-    return function allPositions() {
+    return function paginateData() {
       return _ref.apply(this, arguments);
     };
   }();
@@ -23769,8 +23740,9 @@ function usePosition() {
     positions: positions,
     position: position,
     errors: errors,
-    allPositions: allPositions,
     positionDropdown: positionDropdown,
+    searchStr: searchStr,
+    paginateData: paginateData,
     dropdownPositions: dropdownPositions,
     getPosition: getPosition,
     createPosition: createPosition,
