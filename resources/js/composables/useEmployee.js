@@ -8,10 +8,13 @@ export default function useEmployee() {
     const employeeDropdown = ref([])
     const errors = ref('')
     const router = useRouter()
+    const searchStr = ref(null)
 
-    const allEmployees = async () => {
-        let response = await axios.get('/api/employees')
-        employees.value = response.data.data
+    const paginateData = async (page = 1) => {
+        await axios.get('/api/employees?page=' + page, {params: {page, searchEmployee: searchStr.value}})
+        .then(response => {
+            employees.value = response.data
+        })
     }
 
     const dropdownEmployees = async () => {
@@ -57,8 +60,9 @@ export default function useEmployee() {
         employee,
         errors,
         router,
-        allEmployees,
         employeeDropdown,
+        searchStr,
+        paginateData,
         dropdownEmployees,
         getEmployee,
         createEmployee,
