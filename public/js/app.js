@@ -19723,6 +19723,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       };
     });
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(chartOptions);
 
     var verify = function verify(e) {
       e === 'employees' ? alert('There are no positions, please create a position first before creating an employee') : alert('There are no existing employees, please create an employee first before creating a payroll');

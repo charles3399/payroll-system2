@@ -27,7 +27,7 @@
     import useEmployee from "./composables/useEmployee"
     import usePayroll from "./composables/usePayroll"
     import usePosition from "./composables/usePosition"
-    import { onMounted, computed, ref } from "vue"
+    import { onMounted, computed } from 'vue'
     import VueHighcharts from 'vue3-highcharts';
 
     export default {
@@ -61,7 +61,7 @@
                 },
                 accessibility: {
                     point: {
-                    valueSuffix: '%'
+                        valueSuffix: '%'
                     }
                 },
                 plotOptions: {
@@ -95,6 +95,7 @@
                 }],
             }));
 
+            onMounted(chartOptions)
 
             const verify = (e) => {
                 e === 'employees' ? alert('There are no positions, please create a position first before creating an employee') : alert('There are no existing employees, please create an employee first before creating a payroll')
