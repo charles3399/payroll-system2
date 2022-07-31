@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('passers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('reason');
+            $table->foreignId('employee_id');
+            $table->string('reason')->nullable();
             $table->timestamps();
         });
     }

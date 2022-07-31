@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Passers;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Http\Requests\PassersRequest;
 use App\Http\Resources\EmployeeResource;
+use App\Http\Resources\PassersResource;
 
 class EmployeeController extends Controller
 {
@@ -85,5 +88,12 @@ class EmployeeController extends Controller
         $employees = Employee::all();
 
         return EmployeeResource::collection($employees);
+    }
+
+    public function setPasser(PassersRequest $request)
+    {
+        $passer = Passers::create($request->validated());
+
+        return new PassersResource($passer);
     }
 }

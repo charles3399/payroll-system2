@@ -19939,7 +19939,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         errors = _useEmployee.errors,
         employees = _useEmployee.employees,
         searchStr = _useEmployee.searchStr,
-        paginateData = _useEmployee.paginateData;
+        paginateData = _useEmployee.paginateData,
+        setPasser = _useEmployee.setPasser;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(paginateData);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.watch)(function () {
@@ -19984,12 +19985,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
+    var setThisPasser = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id, name) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (window.confirm("Do you want ".concat(name, " to be set as passed?"))) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.next = 4;
+                return setPasser(id);
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function setThisPasser(_x3, _x4) {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
     return {
       destroyEmployee: destroyEmployee,
       employees: employees,
       paginateData: paginateData,
       errors: errors,
-      searchStr: searchStr
+      searchStr: searchStr,
+      setThisPasser: setThisPasser
     };
   }
 });
@@ -21267,12 +21299,13 @@ var _hoisted_14 = {
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 
 var _hoisted_16 = ["onClick"];
+var _hoisted_17 = ["onClick"];
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
 /* HOISTED */
 );
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
 /* HOISTED */
 );
 
@@ -21367,7 +21400,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1"
         }, "Delete", 8
         /* PROPS */
-        , _hoisted_16)])]);
+        , _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          onClick: function onClick($event) {
+            return $setup.setThisPasser(employee.id, employee.full_name);
+          },
+          "class": "px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 transform duration-200 rounded-lg mx-1"
+        }, "Passed", 8
+        /* PROPS */
+        , _hoisted_17)])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))];
@@ -21381,10 +21421,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     limit: 2
   }, {
     "prev-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_17];
+      return [_hoisted_18];
     }),
     "next-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_18];
+      return [_hoisted_19];
     }),
     _: 1
     /* STABLE */
@@ -23252,6 +23292,33 @@ function useEmployee() {
     };
   }();
 
+  var setPasser = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/setPasser', {
+                employee_id: id,
+                reason: null
+              }).then(function (res) {
+                console.log(res);
+              });
+
+            case 2:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }));
+
+    return function setPasser(_x5) {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+
   return {
     employees: employees,
     employee: employee,
@@ -23264,7 +23331,8 @@ function useEmployee() {
     getEmployee: getEmployee,
     createEmployee: createEmployee,
     updateEmployee: updateEmployee,
-    deleteEmployee: deleteEmployee
+    deleteEmployee: deleteEmployee,
+    setPasser: setPasser
   };
 }
 
