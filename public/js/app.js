@@ -19939,7 +19939,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         errors = _useEmployee.errors,
         employees = _useEmployee.employees,
         searchStr = _useEmployee.searchStr,
-        paginateData = _useEmployee.paginateData;
+        paginateData = _useEmployee.paginateData,
+        setPasser = _useEmployee.setPasser;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(paginateData);
     (0,vue__WEBPACK_IMPORTED_MODULE_2__.watch)(function () {
@@ -19984,12 +19985,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
+    var setThisPasser = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id, name) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (window.confirm("Do you want ".concat(name, " to be set as passed?"))) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.next = 4;
+                return setPasser(id);
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function setThisPasser(_x3, _x4) {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
     return {
       destroyEmployee: destroyEmployee,
       employees: employees,
       paginateData: paginateData,
       errors: errors,
-      searchStr: searchStr
+      searchStr: searchStr,
+      setThisPasser: setThisPasser
     };
   }
 });
@@ -21267,12 +21299,13 @@ var _hoisted_14 = {
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 
 var _hoisted_16 = ["onClick"];
+var _hoisted_17 = ["onClick"];
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
 /* HOISTED */
 );
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
 /* HOISTED */
 );
 
@@ -21367,7 +21400,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1"
         }, "Delete", 8
         /* PROPS */
-        , _hoisted_16)])]);
+        , _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+          onClick: function onClick($event) {
+            return $setup.setThisPasser(employee.id, employee.full_name);
+          },
+          "class": "px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 transform duration-200 rounded-lg mx-1"
+        }, "Passed", 8
+        /* PROPS */
+        , _hoisted_17)])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))];
@@ -21381,10 +21421,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     limit: 2
   }, {
     "prev-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_17];
+      return [_hoisted_18];
     }),
     "next-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_18];
+      return [_hoisted_19];
     }),
     _: 1
     /* STABLE */
@@ -23252,6 +23292,33 @@ function useEmployee() {
     };
   }();
 
+  var setPasser = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/setPasser', {
+                employee_id: id,
+                reason: null
+              }).then(function (res) {
+                console.log(res);
+              });
+
+            case 2:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }));
+
+    return function setPasser(_x5) {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+
   return {
     employees: employees,
     employee: employee,
@@ -23264,7 +23331,8 @@ function useEmployee() {
     getEmployee: getEmployee,
     createEmployee: createEmployee,
     updateEmployee: updateEmployee,
-    deleteEmployee: deleteEmployee
+    deleteEmployee: deleteEmployee,
+    setPasser: setPasser
   };
 }
 
@@ -65049,12 +65117,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _404_vue_vue_type_template_id_6627402a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./404.vue?vue&type=template&id=6627402a */ "./resources/js/404.vue?vue&type=template&id=6627402a");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_404_vue_vue_type_template_id_6627402a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/404.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_404_vue_vue_type_template_id_6627402a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/404.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65077,7 +65145,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Main_vue_vue_type_template_id_01a582d7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Main.vue?vue&type=template&id=01a582d7 */ "./resources/js/Main.vue?vue&type=template&id=01a582d7");
 /* harmony import */ var _Main_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Main.vue?vue&type=script&lang=js */ "./resources/js/Main.vue?vue&type=script&lang=js");
 /* harmony import */ var _Main_vue_vue_type_style_index_0_id_01a582d7_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Main.vue?vue&type=style&index=0&id=01a582d7&lang=css */ "./resources/js/Main.vue?vue&type=style&index=0&id=01a582d7&lang=css");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -65085,7 +65153,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Main_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Main_vue_vue_type_template_id_01a582d7__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Main.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Main_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Main_vue_vue_type_template_id_01a582d7__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Main.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65107,13 +65175,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _EmployeesCreate_vue_vue_type_template_id_4b64badc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmployeesCreate.vue?vue&type=template&id=4b64badc */ "./resources/js/components/Employees/EmployeesCreate.vue?vue&type=template&id=4b64badc");
 /* harmony import */ var _EmployeesCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeesCreate.vue?vue&type=script&lang=js */ "./resources/js/components/Employees/EmployeesCreate.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesCreate_vue_vue_type_template_id_4b64badc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesCreate.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesCreate_vue_vue_type_template_id_4b64badc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesCreate.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65135,13 +65203,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _EmployeesEdit_vue_vue_type_template_id_e033fa2c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmployeesEdit.vue?vue&type=template&id=e033fa2c */ "./resources/js/components/Employees/EmployeesEdit.vue?vue&type=template&id=e033fa2c");
 /* harmony import */ var _EmployeesEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeesEdit.vue?vue&type=script&lang=js */ "./resources/js/components/Employees/EmployeesEdit.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesEdit_vue_vue_type_template_id_e033fa2c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesEdit.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesEdit_vue_vue_type_template_id_e033fa2c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesEdit.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65163,13 +65231,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _EmployeesIndex_vue_vue_type_template_id_a2dbd7bc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmployeesIndex.vue?vue&type=template&id=a2dbd7bc */ "./resources/js/components/Employees/EmployeesIndex.vue?vue&type=template&id=a2dbd7bc");
 /* harmony import */ var _EmployeesIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeesIndex.vue?vue&type=script&lang=js */ "./resources/js/components/Employees/EmployeesIndex.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesIndex_vue_vue_type_template_id_a2dbd7bc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesIndex.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesIndex_vue_vue_type_template_id_a2dbd7bc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesIndex.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65191,13 +65259,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _EmployeesShow_vue_vue_type_template_id_1c36be5d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmployeesShow.vue?vue&type=template&id=1c36be5d */ "./resources/js/components/Employees/EmployeesShow.vue?vue&type=template&id=1c36be5d");
 /* harmony import */ var _EmployeesShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeesShow.vue?vue&type=script&lang=js */ "./resources/js/components/Employees/EmployeesShow.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesShow_vue_vue_type_template_id_1c36be5d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesShow.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EmployeesShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EmployeesShow_vue_vue_type_template_id_1c36be5d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Employees/EmployeesShow.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65219,13 +65287,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PayrollsCreate_vue_vue_type_template_id_7ec598d0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PayrollsCreate.vue?vue&type=template&id=7ec598d0 */ "./resources/js/components/Payrolls/PayrollsCreate.vue?vue&type=template&id=7ec598d0");
 /* harmony import */ var _PayrollsCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PayrollsCreate.vue?vue&type=script&lang=js */ "./resources/js/components/Payrolls/PayrollsCreate.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsCreate_vue_vue_type_template_id_7ec598d0__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsCreate.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsCreate_vue_vue_type_template_id_7ec598d0__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsCreate.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65247,13 +65315,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PayrollsEdit_vue_vue_type_template_id_a3e46444__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PayrollsEdit.vue?vue&type=template&id=a3e46444 */ "./resources/js/components/Payrolls/PayrollsEdit.vue?vue&type=template&id=a3e46444");
 /* harmony import */ var _PayrollsEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PayrollsEdit.vue?vue&type=script&lang=js */ "./resources/js/components/Payrolls/PayrollsEdit.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsEdit_vue_vue_type_template_id_a3e46444__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsEdit.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsEdit_vue_vue_type_template_id_a3e46444__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsEdit.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65275,13 +65343,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PayrollsIndex_vue_vue_type_template_id_5563a7ae__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PayrollsIndex.vue?vue&type=template&id=5563a7ae */ "./resources/js/components/Payrolls/PayrollsIndex.vue?vue&type=template&id=5563a7ae");
 /* harmony import */ var _PayrollsIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PayrollsIndex.vue?vue&type=script&lang=js */ "./resources/js/components/Payrolls/PayrollsIndex.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsIndex_vue_vue_type_template_id_5563a7ae__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsIndex.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsIndex_vue_vue_type_template_id_5563a7ae__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsIndex.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65303,13 +65371,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PayrollsShow_vue_vue_type_template_id_3a5e8951__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PayrollsShow.vue?vue&type=template&id=3a5e8951 */ "./resources/js/components/Payrolls/PayrollsShow.vue?vue&type=template&id=3a5e8951");
 /* harmony import */ var _PayrollsShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PayrollsShow.vue?vue&type=script&lang=js */ "./resources/js/components/Payrolls/PayrollsShow.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsShow_vue_vue_type_template_id_3a5e8951__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsShow.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PayrollsShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PayrollsShow_vue_vue_type_template_id_3a5e8951__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payrolls/PayrollsShow.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65331,13 +65399,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PositionsCreate_vue_vue_type_template_id_143f1434__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PositionsCreate.vue?vue&type=template&id=143f1434 */ "./resources/js/components/Positions/PositionsCreate.vue?vue&type=template&id=143f1434");
 /* harmony import */ var _PositionsCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PositionsCreate.vue?vue&type=script&lang=js */ "./resources/js/components/Positions/PositionsCreate.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsCreate_vue_vue_type_template_id_143f1434__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsCreate.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsCreate_vue_vue_type_template_id_143f1434__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsCreate.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65359,13 +65427,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PositionsEdit_vue_vue_type_template_id_f16e0f18__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PositionsEdit.vue?vue&type=template&id=f16e0f18 */ "./resources/js/components/Positions/PositionsEdit.vue?vue&type=template&id=f16e0f18");
 /* harmony import */ var _PositionsEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PositionsEdit.vue?vue&type=script&lang=js */ "./resources/js/components/Positions/PositionsEdit.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsEdit_vue_vue_type_template_id_f16e0f18__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsEdit.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsEdit_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsEdit_vue_vue_type_template_id_f16e0f18__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsEdit.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65387,13 +65455,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PositionsIndex_vue_vue_type_template_id_b8e46050__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PositionsIndex.vue?vue&type=template&id=b8e46050 */ "./resources/js/components/Positions/PositionsIndex.vue?vue&type=template&id=b8e46050");
 /* harmony import */ var _PositionsIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PositionsIndex.vue?vue&type=script&lang=js */ "./resources/js/components/Positions/PositionsIndex.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsIndex_vue_vue_type_template_id_b8e46050__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsIndex.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsIndex_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsIndex_vue_vue_type_template_id_b8e46050__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsIndex.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -65415,13 +65483,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PositionsShow_vue_vue_type_template_id_1399b3e7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PositionsShow.vue?vue&type=template&id=1399b3e7 */ "./resources/js/components/Positions/PositionsShow.vue?vue&type=template&id=1399b3e7");
 /* harmony import */ var _PositionsShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PositionsShow.vue?vue&type=script&lang=js */ "./resources/js/components/Positions/PositionsShow.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_payroll_2_0_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsShow_vue_vue_type_template_id_1399b3e7__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsShow.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_payroll_system2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PositionsShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PositionsShow_vue_vue_type_template_id_1399b3e7__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Positions/PositionsShow.vue"]])
 /* hot reload */
 if (false) {}
 

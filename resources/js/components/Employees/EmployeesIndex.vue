@@ -29,6 +29,7 @@
                     <td class="px-6 py-3 flex justify-between">
                         <router-link :to="{ name: 'Edit Employee', params: { id: employee.id, title: employee.full_name } }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
                         <button @click="destroyEmployee(employee.id, employee.full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
+                        <button @click="setThisPasser(employee.id, employee.full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 transform duration-200 rounded-lg mx-1">Passed</button>
                     </td>
                 </tr>
             </transition-group>
@@ -59,7 +60,8 @@
                 errors,
                 employees,
                 searchStr,
-                paginateData
+                paginateData,
+                setPasser
             } = useEmployee()
 
             onMounted(paginateData)
@@ -79,12 +81,22 @@
                 await paginateData()
             }
 
+            const setThisPasser = async (id, name) => {
+                if(!window.confirm(`Do you want ${name} to be set as passed?`)) {
+                    return
+                }
+
+                await setPasser(id)
+                //await paginateData()
+            }
+
             return {
                 destroyEmployee,
                 employees,
                 paginateData,
                 errors,
                 searchStr,
+                setThisPasser,
             }
         }
     }
