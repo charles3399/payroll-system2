@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateEmployeeRequest;
 use App\Http\Requests\PassersRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\PassersResource;
+use DB;
 
 class EmployeeController extends Controller
 {
@@ -93,6 +94,8 @@ class EmployeeController extends Controller
     public function setPasser(PassersRequest $request)
     {
         $passer = Passers::create($request->validated());
+
+        Employee::where('id', $passer->employee_id)->update(['passers_id' => $passer->id]);
 
         return new PassersResource($passer);
     }

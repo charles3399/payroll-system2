@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\PasserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::get('allEmployee', [EmployeeController::class, 'showEmployees']);
     Route::get('allPayroll', [PayrollController::class, 'showPayrolls']);
     Route::post('setPasser', [EmployeeController::class, 'setPasser']);
+    Route::get('allPasser', [PasserController::class, 'get_all']);
 });

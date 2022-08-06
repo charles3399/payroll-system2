@@ -21300,12 +21300,17 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_16 = ["onClick"];
 var _hoisted_17 = ["onClick"];
+var _hoisted_18 = {
+  key: 1,
+  "class": "px-3 py-1 font-bold tracking-wider text-sm border-2 border-blue-400 rounded-lg mx-1 focus:outline-none disabled:opacity-100",
+  disabled: ""
+};
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
 /* HOISTED */
 );
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
 /* HOISTED */
 );
 
@@ -21400,14 +21405,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": "px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1"
         }, "Delete", 8
         /* PROPS */
-        , _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        , _hoisted_16), employee.passers_id == 0 || employee.passers_id == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+          key: 0,
           onClick: function onClick($event) {
             return $setup.setThisPasser(employee.id, employee.full_name);
           },
-          "class": "px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 transform duration-200 rounded-lg mx-1"
-        }, "Passed", 8
+          "class": "px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 rounded-lg mx-1 transform duration-200"
+        }, "Passer", 8
         /* PROPS */
-        , _hoisted_17)])]);
+        , _hoisted_17)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_18, "Passed"))])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))];
@@ -21421,10 +21427,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     limit: 2
   }, {
     "prev-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_18];
+      return [_hoisted_19];
     }),
     "next-nav": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_19];
+      return [_hoisted_20];
     }),
     _: 1
     /* STABLE */
@@ -23303,6 +23309,7 @@ function useEmployee() {
                 employee_id: id,
                 reason: null
               }).then(function (res) {
+                window.location.reload();
                 console.log(res);
               });
 
