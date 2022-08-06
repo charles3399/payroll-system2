@@ -20056,8 +20056,14 @@ __webpack_require__.r(__webpack_exports__);
         getEmployee = _useEmployee.getEmployee;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getEmployee(props.id));
+
+    var isPasser = function isPasser() {
+      return employee.passers_id != 0 ? 'Passed' : 'Not a passer';
+    };
+
     return {
-      employee: employee
+      employee: employee,
+      isPasser: isPasser
     };
   }
 });
@@ -21487,8 +21493,11 @@ var _hoisted_9 = {
 var _hoisted_10 = {
   "class": "my-2 text-xl tracking-wider"
 };
+var _hoisted_11 = {
+  "class": "my-2 text-xl tracking-wider"
+};
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -21519,6 +21528,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "Address: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.employee.address), 1
   /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, "Passer Status: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.isPasser()), 1
+  /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'Edit Employee',
@@ -21529,7 +21540,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "my-2 px-3 py-1 text-sm bg-green-500 hover:bg-green-700 transform duration-200 font-bold tracking-wider rounded-lg"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_11];
+      return [_hoisted_12];
     }),
     _: 1
     /* STABLE */
