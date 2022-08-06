@@ -29,7 +29,8 @@
                     <td class="px-6 py-3 flex justify-between">
                         <router-link :to="{ name: 'Edit Employee', params: { id: employee.id, title: employee.full_name } }" class="px-3 py-1 font-bold tracking-wider text-sm bg-green-600 hover:bg-green-700 transform duration-200 rounded-lg mx-1">Edit</router-link>
                         <button @click="destroyEmployee(employee.id, employee.full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-red-600 hover:bg-red-800 transform duration-200 rounded-lg mx-1">Delete</button>
-                        <button @click="setThisPasser(employee.id, employee.full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 transform duration-200 rounded-lg mx-1">Passed</button>
+                        <button v-if="employee.passers_id == 0 || employee.passers_id == null" @click="setThisPasser(employee.id, employee.full_name)" class="px-3 py-1 font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-800 rounded-lg mx-1 transform duration-200">Passer</button>
+                        <button v-else class="px-3 py-1 font-bold tracking-wider text-sm border-2 border-blue-400 rounded-lg mx-1 focus:outline-none disabled:opacity-100" disabled>Passed</button>
                     </td>
                 </tr>
             </transition-group>
@@ -61,7 +62,7 @@
                 employees,
                 searchStr,
                 paginateData,
-                setPasser
+                setPasser,
             } = useEmployee()
 
             onMounted(paginateData)

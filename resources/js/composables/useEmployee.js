@@ -58,9 +58,9 @@ export default function useEmployee() {
     const setPasser = async (id) => {
         await axios.post('/api/setPasser', {employee_id: id, reason: null})
         .then(function (res){
+            window.location.reload();
             console.log(res);
         });
-        //await router.push({name: 'All Employees'})
     }
 
     return {
@@ -76,6 +76,6 @@ export default function useEmployee() {
         createEmployee,
         updateEmployee,
         deleteEmployee,
-        setPasser
+        setPasser,
     }
 }

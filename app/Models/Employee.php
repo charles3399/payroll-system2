@@ -15,7 +15,8 @@ class Employee extends Model
         'email',
         'address',
         'gender',
-        'position_id'
+        'position_id',
+        'passers_id',
     ];
 
     public function position() {
@@ -27,6 +28,6 @@ class Employee extends Model
     }
 
     public function passers() {
-        return $this->belongsTo(Passers::class);
+        return $this->hasOne(Passers::class);
     }
 }

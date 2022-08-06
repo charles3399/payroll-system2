@@ -16,12 +16,6 @@ class PassersResource extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-
-        return [
-            'id' => $this->id,
-            'employee_id' => EmployeeResource::collection($this->whenLoaded('employee')),
-            'reason' => $this->reason,
-        ];
+        return parent::toArray($request);
     }
 }
