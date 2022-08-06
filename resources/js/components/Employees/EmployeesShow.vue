@@ -34,7 +34,7 @@
             onMounted(getEmployee(props.id))
 
             const isPasser = () => {
-                return employee.passers_id != 0 ? 'Passed' : 'Not a passer'
+                return (employee.passers_id != 0 || employee.passers_id != null) ? 'Passed' : 'Not a passer'
             }
 
             return {

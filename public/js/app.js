@@ -20058,7 +20058,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getEmployee(props.id));
 
     var isPasser = function isPasser() {
-      return employee.passers_id != 0 ? 'Passed' : 'Not a passer';
+      return employee.passers_id != 0 || employee.passers_id != null ? 'Passed' : 'Not a passer';
     };
 
     return {
