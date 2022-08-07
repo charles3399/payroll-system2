@@ -13,6 +13,7 @@ import PayrollsIndex from "../components/Payrolls/PayrollsIndex.vue"
 import PayrollsCreate from "../components/Payrolls/PayrollsCreate.vue"
 import PayrollsEdit from "../components/Payrolls/PayrollsEdit.vue"
 import PayrollsShow from "../components/Payrolls/PayrollsShow.vue"
+import PassersIndex from "../components/Passers/PassersIndex.vue"
 import PageNotFound from "../404.vue"
 
 const routes = [
@@ -86,6 +87,11 @@ const routes = [
         name: 'Payroll Information',
         component: PayrollsShow,
         props: true
+    },
+    {
+        path: '/passers',
+        name: 'All Passers',
+        component: PassersIndex
     },
     {
         path: '/:catchAll(.*)',

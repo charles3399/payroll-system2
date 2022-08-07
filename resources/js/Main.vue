@@ -10,6 +10,8 @@
             <button @click="verify('payrolls')" v-else class="mx-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg opacity-80 cursor-default">Payrolls</button>
 
             <router-link to="/positions" class="m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-blue-600 hover:border-blue-600 transform duration-200">Positions <p class="text-md mt-1">{{ positionDropdown.length }}</p></router-link>
+
+            <router-link to="/passers" class="m-5 p-5 text-center font-bold tracking-wide text-2xl border-2 border-white rounded-lg hover:bg-orange-600 hover:border-orange-600 transform duration-200">Passers <p class="text-md mt-1">{{ dataDashboard.length }}</p></router-link>
         </div>
         <div class="text-center">
             <vue-highcharts
@@ -27,6 +29,7 @@
     import useEmployee from "./composables/useEmployee"
     import usePayroll from "./composables/usePayroll"
     import usePosition from "./composables/usePosition"
+    import usePasser from "./composables/usePasser"
     import { onMounted, computed } from 'vue'
     import VueHighcharts from 'vue3-highcharts';
 
@@ -38,10 +41,12 @@
             const { employeeDropdown, dropdownEmployees } = useEmployee()
             const { positionDropdown, dropdownPositions } = usePosition()
             const { payrollDropdown, dropdownPayrolls } = usePayroll()
+            const { dataDashboard, dashboardPassers } = usePasser()
             
             onMounted(dropdownEmployees())
             onMounted(dropdownPositions())
             onMounted(dropdownPayrolls())
+            onMounted(dashboardPassers())
 
             const chartOptions = computed(() => ({
                 chart: {
@@ -49,7 +54,7 @@
                     backgroundColor: null,
                 },
                 title: {
-                    text: 'Dashboard',
+                    text: null,
                     style: {
                         color: '#fff',
                         fontWeight: 'bold',
@@ -77,21 +82,28 @@
                 series: [{
                     name: 'Percentage',
                     colorByPoint: true,
-                    data: [{
-                        name: 'Employees',
-                        y: employeeDropdown.value.length,
-                        color: 'rgb(248 113 113)'
-                    },
-                    {
-                        name: 'Payrolls',
-                        y: payrollDropdown.value.length,
-                        color: 'rgb(74 222 128)'
-                    },
-                    {
-                        name: 'Positions',
-                        y: positionDropdown.value.length,
-                        color: 'rgb(37 99 235)'
-                    }],
+                    data: [
+                        {
+                            name: 'Employees',
+                            y: employeeDropdown.value.length,
+                            color: 'rgb(248 113 113)'
+                        },
+                        {
+                            name: 'Payrolls',
+                            y: payrollDropdown.value.length,
+                            color: 'rgb(74 222 128)'
+                        },
+                        {
+                            name: 'Positions',
+                            y: positionDropdown.value.length,
+                            color: 'rgb(37 99 235)'
+                        },
+                        {
+                            name: 'Passers',
+                            y: dataDashboard.value.length,
+                            color: 'rgb(234 88 12)'
+                        },
+                    ],
                 }],
             }));
 
@@ -105,6 +117,7 @@
                 employeeDropdown,
                 positionDropdown,
                 payrollDropdown,
+                dataDashboard,
                 verify,
                 chartOptions,
             }
