@@ -26,6 +26,7 @@ class EmployeeSeeder extends Seeder
                 'position_id' => rand(1, count(Position::all())),
                 'created_at' => now(),
                 'updated_at' => now(),
+                'passers_id' => 0,
             ]);
         }
     }

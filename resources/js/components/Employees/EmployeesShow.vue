@@ -10,7 +10,7 @@
                 <h3 class="my-2 text-xl tracking-wider">Gender: {{ employee.gender }}</h3>
                 <h3 class="my-2 text-xl tracking-wider">E-mail: {{ employee.email }}</h3>
                 <h3 class="my-2 text-xl tracking-wider">Address: {{ employee.address }}</h3>
-                <h3 class="my-2 text-xl tracking-wider">Passer Status: {{ isPasser() }}</h3>
+                <h3 class="my-2 text-xl tracking-wider">Passer Status: {{ employee.passers_id > 0 ? 'Passer' : 'Not a passer' }}</h3>
                 <router-link :to="{ name: 'Edit Employee', params: { id: employee.id } }" class="my-2 px-3 py-1 text-sm bg-green-500 hover:bg-green-700 transform duration-200 font-bold tracking-wider rounded-lg">Edit</router-link>
             </div>
         </div>
@@ -33,13 +33,8 @@
 
             onMounted(getEmployee(props.id))
 
-            const isPasser = () => {
-                return (employee.passers_id != 0 || employee.passers_id != null) ? 'Passed' : 'Not a passer'
-            }
-
             return {
                 employee,
-                isPasser,
             }
         }
     }
