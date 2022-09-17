@@ -12,7 +12,7 @@
                 <h3 class="my-2 text-xl tracking-wider">Overtime: {{ payroll.overtime }} hr(s)</h3>
                 <h3 class="my-2 text-xl tracking-wider">Lates: {{ payroll.late }} min(s)</h3>
                 <h3 class="my-2 text-xl tracking-wider">Absences: {{ payroll.absences }} day(s)</h3>
-                <h3 class="my-2 text-xl tracking-wider">Bonuses: {{ payroll.bonuses }}</h3>
+                <h3 class="my-2 text-xl tracking-wider">Bonuses: {{ payroll.bonuses ? payroll.bonuses : '0' }}</h3>
                 <router-link :to="{ name: 'Edit Payroll', params: { id: payroll.id } }" class="my-2 px-3 py-1 text-sm bg-green-500 hover:bg-green-700 transform duration-200 font-bold tracking-wider rounded-lg">Edit</router-link>
             </div>
             <div class="my-2 px-5 py-3 bg-gray-700 rounded-lg">
@@ -30,7 +30,7 @@
                             <tr>
                                 <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).monthly) }}</td>
                                 <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).overtime_final) }}</td>
-                                <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).bonuses) }}</td>
+                                <td class="p-2">{{ payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).bonuses ? numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).bonuses) : '0' }}</td>
                                 <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).gross_income) }}</td>
                             </tr>
                         </tbody>

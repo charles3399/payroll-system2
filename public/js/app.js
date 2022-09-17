@@ -22624,7 +22624,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, "Absences: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.absences) + " day(s)", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_13, "Bonuses: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.bonuses), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_13, "Bonuses: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payroll.bonuses ? $setup.payroll.bonuses : '0'), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -22647,7 +22647,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).overtime_final)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses)), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses ? $setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses) : '0'), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).gross_income)), 1
   /* TEXT */
