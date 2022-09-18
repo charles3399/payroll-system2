@@ -13,6 +13,11 @@ export default function usePayroll() {
 
     const payrollCompute = (basic_pay, days_worked, overtime, bonuses, late, absences) => {
         //Earnings
+
+        if(bonuses == null){
+            bonuses = 0
+        }
+
         let hourly = basic_pay
         let per_day = hourly * 8
         let monthly = per_day * days_worked

@@ -19694,7 +19694,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         },
         tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.0f}%</b>'
+          pointFormat: '{series.name}: <b>{point.percentage:.0f}</b>'
         },
         accessibility: {
           point: {
@@ -19702,6 +19702,15 @@ __webpack_require__.r(__webpack_exports__);
           }
         },
         plotOptions: {
+          series: {
+            point: {
+              events: {
+                click: function click(e) {
+                  alert(this.y);
+                }
+              }
+            }
+          },
           pie: {
             allowPointSelect: true,
             cursor: 'pointer',
@@ -19712,7 +19721,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         },
         series: [{
-          name: 'Percentage',
+          name: 'Total',
           colorByPoint: true,
           data: [{
             name: 'Employees',
@@ -22647,7 +22656,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).overtime_final)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses ? $setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses) : '0'), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).bonuses)), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.numberWithCommas($setup.payrollCompute($setup.payroll.employee[0].position.basic_pay, $setup.payroll.days_worked, $setup.payroll.overtime, $setup.payroll.bonuses, $setup.payroll.late, $setup.payroll.absences).gross_income)), 1
   /* TEXT */
@@ -23694,6 +23703,10 @@ function usePayroll() {
 
   var payrollCompute = function payrollCompute(basic_pay, days_worked, overtime, bonuses, late, absences) {
     //Earnings
+    if (bonuses == null) {
+      bonuses = 0;
+    }
+
     var hourly = basic_pay;
     var per_day = hourly * 8;
     var monthly = per_day * days_worked;

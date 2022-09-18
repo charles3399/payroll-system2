@@ -30,7 +30,7 @@
                             <tr>
                                 <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).monthly) }}</td>
                                 <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).overtime_final) }}</td>
-                                <td class="p-2">{{ payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).bonuses ? numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).bonuses) : '0' }}</td>
+                                <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).bonuses) }}</td>
                                 <td class="p-2">{{ numberWithCommas(payrollCompute(payroll.employee[0].position.basic_pay, payroll.days_worked, payroll.overtime, payroll.bonuses, payroll.late, payroll.absences).gross_income) }}</td>
                             </tr>
                         </tbody>

@@ -30,7 +30,7 @@
     import usePayroll from "./composables/usePayroll"
     import usePosition from "./composables/usePosition"
     import usePasser from "./composables/usePasser"
-    import { onMounted, computed } from 'vue'
+    import { onMounted, computed, watch } from 'vue'
     import VueHighcharts from 'vue3-highcharts';
 
     export default {
@@ -62,7 +62,7 @@
                     }
                 },
                 tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.0f}%</b>'
+                    pointFormat: '{series.name}: <b>{point.percentage:.0f}</b>'
                 },
                 accessibility: {
                     point: {
@@ -70,17 +70,26 @@
                     }
                 },
                 plotOptions: {
+                    series: {
+                        point: {
+                            events: {
+                                click: function(e) {
+                                    alert(this.y)
+                                },
+                            },
+                        },
+                    },
                     pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.0f}'
-                    }
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.0f}'
+                        }
                     }
                 },
                 series: [{
-                    name: 'Percentage',
+                    name: 'Total',
                     colorByPoint: true,
                     data: [
                         {
