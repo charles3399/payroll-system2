@@ -7,8 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PositionRequest;
 use App\Http\Resources\PositionResource;
 
+use App\Http\Services\PositionServices;
+
 class PositionController extends Controller
 {
+    protected $positionServices;
+
+    public function __construct(PositionServices $positionServices)
+    {
+        $this->positionServices = $positionServices;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +24,9 @@ class PositionController extends Controller
      */
     public function index(Request $request)
     {
-        $positions = Position::where('position_name', 'LIKE', '%'.$request->searchPosition.'%')
-        ->orWhere('id', 'LIKE', '%'.$request->searchPosition.'%')
-        ->paginate(10);
+        $query = $request->searchPosition;
+
+        $positions = $this->positionServices->search_position($query);
 
         return PositionResource::collection($positions);
     }

@@ -12,8 +12,16 @@ use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\PassersResource;
 use DB;
 
+use App\Http\Services\EmployeeServices;
+
 class EmployeeController extends Controller
 {
+    protected $employeeServices;
+
+    public function __construct(EmployeeServices $employeeServices)
+    {
+        $this->employeeServices = $employeeServices;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +29,9 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        //$employees = Employee::with('position')->paginate(10);
+        $search = $request->searchEmployee;
 
-        $employees = Employee::where('full_name', 'LIKE', '%'.$request->searchEmployee.'%')
-        ->orWhere('id', 'LIKE', '%'.$request->searchEmployee.'%')
-        ->with('position')
-        ->paginate(10);
+        $employees = $this->employeeServices->search_employee($search);
 
         return EmployeeResource::collection($employees);
     }

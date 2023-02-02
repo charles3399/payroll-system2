@@ -12,7 +12,7 @@ use App\Http\Services\PayrollServices;
 
 class PayrollController extends Controller
 {
-    protected $payrollService;
+    protected $payrollServices;
 
     public function __construct(PayrollServices $payrollServices)
     {
