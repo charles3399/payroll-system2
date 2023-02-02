@@ -8,8 +8,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PayrollRequest;
 use App\Http\Resources\PayrollResource;
 
+use App\Http\Services\PayrollServices;
+
 class PayrollController extends Controller
 {
+    protected $payrollService;
+
+    public function __construct(PayrollServices $payrollServices)
+    {
+        $this->payrollServices = $payrollServices;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,14 +27,7 @@ class PayrollController extends Controller
     {
         $searchQuery = $request->searchPayroll;
 
-        $payrolls = Payroll::whereHas('employee', function($query) use($searchQuery) {
-            $query->where('full_name', 'LIKE', '%'.$searchQuery.'%');
-        })
-        ->orWhereHas('employee.position', function($query) use($searchQuery) {
-            $query->where('position_name', 'LIKE', '%'.$searchQuery.'%');
-        })
-        ->with(['employee', 'employee.position'])
-        ->paginate(10);
+        $payrolls = $this->payrollServices->search_payroll($searchQuery);
 
         return PayrollResource::collection($payrolls);
     }
